@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="images/fevi.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dabbawala Journey</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <!-- main section -->
+    <div class="background">
+
+        <div>
+          <a href="index.html"><img src="images/logo.png" class="img-logo"></a>
+        </div>  
+
+        <div class="main-text-container">
+          <div class="text-left">
+            <h2 class="text_head">DID YOU KNOW?</h2>
+            <p class="text_para">The Dabbawala's system has been recognized<br> for its efficiency, diligence, and punctuality.</p>
+            <p class="text_para2">In 2010, Harvard Business School graded the<br> system as "Six Sigma", which means it makes<br> fewer than 3.4 mistakes per million transactions.</p>
+          </div>
+
+          <div class="text-right">
+            <h2 class="text_count">5,000</h2>
+            <p class="text_count_p">DILIGENT DABBAWALAS</p><br>
+            <h2 class="text_count">200,000</h2>
+            <p class="text_count_p">DELIVERIES EVERY DAY</p><br>
+            <h2 class="text_count clr">99.999997%</h2>
+            <p class="text_count_p"><span style="color: #AA4242;">SIX SIGMA</span> EFFICIENCY RATING </p>
+            </div>
+        </div>
+        
+
+        <div class="mumbai-city-bg"></div>
+        <div class="road">
+          <div class="btn-next_1 "> 
+            <!-- <a class="marathi" onclick="PickUp()" href="pick-up.html" style="text-decoration: none"> -->
+              <!-- <h2  onclick="Pickup()" class="ftr_btn" style="text-decoration: none" >DISCOVER THE MAGIC &nbsp;&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></h2> -->
+
+                <button id="startJourneyButton" onclick="Pickup()">DISCOVER THE MAGIC &nbsp;&nbsp; <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            
+            <!-- </a> -->
+          </div>
+        </div>
+        <div class="cycle">
+          <img src="images/cyclists.svg" alt="Dabbawala-cycle">
+        </div>
+
+        
+    </div>
+  <!-- main section end -->
+
+
+
+
+  <!-- this is for marathi translet script to next page translet -->
+
+  
+
+
+  <!-- this is a animation effects -->
+ <style>
+    /* Element to animate */
+    .zoom-box {
+      animation: zoomIn 2s ease-in-out;
+    }
+
+    /* Keyframes for zoom-in animation */
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0); /* Start at 0 size */
+        opacity: 0;          /* Completely transparent */
+      }
+      50% {
+        transform: scale(1.2); /* Slight overshoot */
+        opacity: 1;            /* Fully visible */
+      }
+      100% {
+        transform: scale(1);   /* Final size */
+      }
+    }
+
+  </style>
+
+
+<!-- /*  running animation  */ -->
+
+
+
+
+
+
+
+
+
+<!-- script for marathi translet -->
+  <script>
+    const translations = {
+      "DID YOU KNOW?": "तुम्हाला माहीत आहे का ?",
+      "The Dabbawala's system has been recognized for its efficiency, diligence, and punctuality.": "डब्बावाल्यांची यंत्रणा त्याच्या कार्यक्षमतेसाठी, <br> परिश्रम आणि वक्तशीरपणासाठी ओळखली जाते.",
+      "In 2010, Harvard Business School graded the system as \"Six Sigma\", which means it makes fewer than 3.4 mistakes per million transactions.": "२०१० मध्ये, हार्वर्ड बिझनेस स्कूलने सिस्टमला<br> सिक्स सिग्मा म्हणून श्रेणीबद्ध केले,  याचा अर्थ<br> प्रति दशलक्ष व्यवहारांमध्ये ३.४ पेक्षा कमी चुका होतात.",
+      "5,000": "५,०००",
+      "DILIGENT DABBAWALAS": "मेहनती डब्बेवाले",
+      "200,000": "२००,०००",
+      "DELIVERIES EVERY DAY": "प्रत्येक दिवशी वितरण",
+      "99.999997%": "९९.९९९९९७%",
+      "SIX SIGMA EFFICIENCY RATING": "सिक्स सिग्मा कार्यक्षमता रेटिंग",
+      "DISCOVER THE MAGIC": "दैनंदिन दिनचर्या समजून घ्या"
+      
+    };
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function translateToMarathi() {
+      document.querySelectorAll('h2, p, button').forEach(element => {
+        const originalText = element.textContent.trim();
+        if (translations[originalText]) {
+          element.innerHTML = translations[originalText];
+        }
+      });
+    }
+
+    function Pickup() {
+      const lang = getQueryParam('lang');
+      window.location.href = `pickup-station.html${lang ? '?lang=' + lang : ''}`;
+    }
+
+    if (getQueryParam('lang') === 'marathi') {
+      translateToMarathi();
+    }
+  </script>
+
+
+</body>
+</html>

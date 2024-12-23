@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="images/fevi.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dabbawala Journey</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="invoice.css">
+</head>
+<body>
+
+  <!-- main section -->
+    <div class="background">
+
+      <!-- <div>
+        <a href="index.html"><img src="images/logo.png" class="img-logo"></a>
+      </div> -->
+
+      <!-- <div class="cont-ct"> -->
+
+         <div class="overlap">
+          <div class="frame-2">
+            <div class="text-wrapper"><h2>Invoice of Dabba</h2></div>
+            <div class="frame-wrapper">
+              <div class="frame-3">
+                <div class="frame-4">
+                  <div class="text-wrapper-2"><h4>Dabba Number</h4></div>
+                  <p class="text-wrapper-3">R BNR 9 EX 12</p>
+                </div>
+                <div class="frame-5">
+                  <div class="text-wrapper-2"><h4>Duration Of Dabba Service</h4></div>
+                  <p class="text-wrapper-3">1 month (Dec to Jan)</p>
+                </div>
+              </div>
+            </div>
+            <div class="frame-3">
+              <div class="frame-4">
+                <div class="text-wrapper-2"><h4>Pick Up Station</h4></div>
+                <div class="text-wrapper-3"><p id="pickupStation"><span>Loading...</span></p></div>
+              </div>
+              <div class="frame-4">
+                <div class="text-wrapper-2"><h4>Drop In Station</h4></div>
+                <div class="text-wrapper-3"><p id="dropStation"><span>Loading...</span></p></div>
+              </div>
+            </div>
+          </div>
+          <img class="image" src="images/dabbawala-icon.svg" />
+        </div>
+        <!-- <img class="mumbai-dabbawala zoom-box" src="images/scan-me.svg" /> -->
+        <div class="mumbai-dabbawala" id="qrcode"></div>
+        <div class="ellipse"></div>
+
+    </div>
+
+
+      <!-- </div> -->
+        
+        <div class="road">
+          <div class="footer-text">॥ अन्नदान हेच श्रेष्ठदान ॥</div>
+           <div class="refresh-btn circle">
+            <a href="index.html">
+              <img src="images/refresh.png" alt="refresh">
+            </a>
+            </div>
+        </div>
+
+    </div>
+    
+  <!-- main section end -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve selected stations from localStorage
+        const pickupStation = localStorage.getItem('selectedStation') || 'Not Selected';
+        const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
+
+        const pickupStationMr = translations[localStorage.getItem('selectedStation')] || 'Not Selected';
+        const dropStationMr = translations[localStorage.getItem('selectedDropStation')] || 'Not Selected';
+
+        // Capitalize the first letter of each word in the station names
+        const capitalize = (str) => str.replace(/\b\w/g, char => char.toUpperCase());
+
+        const capitalizedPickupStation = capitalize(pickupStation);
+        const capitalizedDropStation = capitalize(dropStation);
+
+        // WhatsApp phone number
+        const phoneNumber = "919870419916"; // Replace with your WhatsApp number
+
+        // Check the URL for 'lang=marathi' parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+
+        let message;
+
+        // If 'lang=marathi' is present in the URL, use the Marathi message, otherwise use English
+        if (lang === 'marathi') {
+            message = `नमस्कार, मला डब्बा सेवा हवी आहे. 😃\n\nकुठून: *${pickupStationMr}*\nकुठे: *${dropStationMr}*`;
+        } 
+        else {
+            message = `Hello, I want Dabba Service. 😃 \n\nFrom: *${capitalizedPickupStation}*\nTo: *${capitalizedDropStation}*\n\nWhats the process to signup for a month?`;
+        }
+
+        // Generate WhatsApp deep link
+        const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+        // QR code options
+        const options = {
+            width: 750, // Set width
+            height: 750, // Set height
+        };
+
+        // Generate the QR code
+        const qrCodeDiv = document.getElementById("qrcode");
+        QRCode.toCanvas(whatsappLink, options, function (error, canvas) {
+            if (error) {
+                console.error("QR Code generation error:", error);
+                return;
+            }
+
+            // Append the QR code canvas to the div
+            qrCodeDiv.appendChild(canvas);
+        });
+    });
+</script>
+
+
+
+
+
+
+
+<!-- this is station selection script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Retrieve selected stations from localStorage
+        const pickupStation = localStorage.getItem('selectedStation') || 'Not Selected';
+        const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
+
+        // Update the HTML with the station names
+        document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
+        document.getElementById('dropStation').querySelector('span').textContent = dropStation;
+    });
+
+    function goBackToHomePage() {
+        // Redirect to the first page or home
+        window.location.href = 'pickup-station-page-working.html';
+    }
+</script>
+<!-- this is station selection script end-->
+
+
+
+
+
+<!-- for marathi -->
+
+<script>
+    
+    const translations = {
+      "Invoice of Dabba": "डब्याची पावती",
+      "Dabba Number": "डबा क्रमांक",
+      "Duration Of Dabba Service": "डबा सेवाचा कालावधी",
+      "Pick Up Station":"वाहतूक स्टेशन",
+      "Drop In Station": "शेवटचे स्टेशन",
+      "csmt":"छशिमट",
+          "dadar": "दादर",
+          "kurla": "कुर्ला",
+          "thane": "ठाणे",
+          "wadla": "वडाळा रोड",
+          "vashi": "वाशी",
+          "churchgate": "चर्चगेट",
+          "bandra": "बांद्र",
+          "andheri": "अंधेरी",
+          "dombivli":"डोंबिवली",
+          "ghatkopar":"घाटकोपर",
+          "buculla":"भायखळा",
+          "virar":"विरार",
+          "miraroad":"मीरा रोड",
+          "borivli":"बोरिवली"
+    };
+
+        function getQueryParam(param) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(param);
+        }
+
+        function translateToMarathi() {
+          document.querySelectorAll('h2, p, h4, span').forEach(element => {
+            const originalText = element.textContent.trim();
+            if (translations[originalText]) {
+              element.innerHTML = translations[originalText];
+            }
+          });
+        }
+
+        function Journey() {
+          const lang = getQueryParam('lang');
+          window.location.href = `index.html${lang ? '?lang=' + lang : ''}`;
+        }
+
+        // Automatically apply translation if "lang" is "marathi"
+    window.onload = function() {
+        if (getQueryParam('lang') === 'marathi') {
+            translateToMarathi();
+        }
+    };
+  </script>
+
+
+
+
+
+  <style>
+    /* Circle element */
+    .circle {
+/*      animation: spinOnce 2s ease-in-out forwards;*/
+animation: spin 5s linear ;
+    }
+
+    /* Keyframes for continuous spinning */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
+/*  zoom   */
+
+/* Element to animate */
+    .zoom-box {
+      animation: zoomIn 2s ease-in-out;
+    }
+
+    /* Keyframes for zoom-in animation */
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0); /* Start at 0 size */
+        opacity: 0;          /* Completely transparent */
+      }
+      50% {
+        transform: scale(1.2); /* Slight overshoot */
+        opacity: 1;            /* Fully visible */
+      }
+      100% {
+        transform: scale(1);   /* Final size */
+      }
+    }
+  </style>
+
+</body>
+</html>

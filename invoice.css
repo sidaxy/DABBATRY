@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Gilda+Display&family=Kumbh+Sans:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+.frame-2 {
+    display: flex;
+    flex-direction: column;
+    width: 166%;
+    align-items: flex-start;
+    gap: 130px;
+    padding: 136px;
+    position: absolute;
+    top: -300px;
+    left: 400px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 4px 26px #00000040;
+}
+
+.overlap {
+    position: absolute;
+    width: 1053px;
+    height: 401px;
+    top: 667px;
+    left: 213px;
+}
+
+.text-wrapper h2{
+    position: relative;
+    align-self: stretch;
+    height: 43px;
+    margin-top: -1.00px;
+    font-family: "Montserrat", Helvetica;
+    font-weight: 700;
+    color: #3b352e;
+    font-size: 60px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 55px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.frame-3 {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.frame-4 {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    align-items: flex-start;
+    gap: 6px;
+    position: relative;
+}
+
+.text-wrapper-2 h4 {
+    position: relative;
+    align-self: stretch;
+    margin-top: -1.00px;
+    margin-bottom: -25px;
+    font-family: "Montserrat", Helvetica;
+    font-weight: 500;
+    color: #636363;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.text-wrapper-3 {
+    position: relative;
+    align-self: stretch;
+    font-family: "Montserrat", Helvetica;
+    font-weight: 700;
+    color: #3b352e;
+    font-size: 55px;
+    letter-spacing: 0;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+
+.frame-5 {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    align-items: flex-start;
+    gap: 6px;
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    width: 470px;
+    height: 470px;
+    top: 0px;
+    left: 0;
+}
+
+.mumbai-dabbawala {
+    position: absolute;
+    height: 1000px;
+    width: 1000px;
+    top: 474px;
+    right: 170px;
+}
+
+ .ellipse {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -62px;
+  left: 191px;
+  background-color: #ffffff;
+  border-radius: 9.94px;
+  border: 4.42px solid;
+  border-color: #f4923d;
+}
+
+
+
+/*  this is a responsive css  */
+@media screen and (max-width: 3840px) {
+  .frame-2 {
+    width: 151%;
+    }
+}
+
+
+@media screen and (max-width: 1920px) {
+    .footer-text {   
+        font-size: 42px;
+        margin-top: 86px;
+    }
+
+    .mumbai-dabbawala {
+    height: 500px;
+    width: 500px;
+    top: 184px;
+    right: 108px;
+    }
+
+   .refresh-btn {
+    bottom: 141px;
+    }   
+
+    .refresh-btn img {
+    width: 150px;
+    height: 150px;
+    }
+
+    .overlap {
+    width: 855px;
+    height: 359px;
+    top: 320px;
+    left: 43px;
+    }
+
+        .frame-2 {
+        padding: 52px;
+        width: 90%;
+        top: -109px;
+    left: 308px;
+    }
+
+    .text-wrapper h2 {
+    font-size: 39px;
+    }
+
+    .text-wrapper-3 {
+        font-size: 24px;
+    }
+
+    .text-wrapper-2 h4 {
+    font-size: 23px;
+    }
+
+    .frame-4 {
+    width: 423px;
+    }
+
+    .frame-3 {
+        gap: 22.69px;
+        width: 117%;
+        margin-bottom: -12px;
+        margin-top: -107px;
+    }
+
+    .frame-5 {
+    width: 330px;
+    }
+
+    .image {
+    width: 250px;
+    height: 250px;
+    top: -14px;
+    left: 104px;
+}
+
+}

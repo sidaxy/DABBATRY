@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Gilda+Display&family=Kumbh+Sans:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+
+body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('images/main-bg-pd.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+
+    .box {
+        position: relative;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+    }
+
+    .box2 {
+        width: 52%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 1000px;
+    }
+
+    .box4 {
+        width: 52%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 1575px;
+    }
+
+.box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 438px;
+}
+
+    .text-overlay {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 65px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    cursor: pointer;
+}
+
+    .slider-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        transition: right 0.5s ease;
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    .slider-header {
+        font-size: 90px;
+        font-family: "Lexend Deca";
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .slider-option {
+        font-family: "Lexend Deca";
+        padding: 50px;
+        font-size: 65px;
+        font-weight: bold;
+        color: white;
+        background: none;
+        cursor: pointer;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .slider-option:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .slider-option.disabled {
+        background-color: rgba(128, 128, 128, 0.5);
+        cursor: not-allowed;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 30px;
+        right: 80px;
+        font-size: 80px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: 3px solid white;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1010;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .close-btn:hover {
+        background-color: rgba(255, 255, 255, 0.3); /* Light background on hover */
+        border-color: rgba(255, 255, 255, 0.7); /* Lighten the border on hover */
+    }
+
+    .heading h2 {
+        text-align: justify;
+        font-family: "Lexend Deca";
+        font-size: 54px;
+        font-weight: 600;
+        color: #945B2B;
+        /* left: 10px; */
+        /* margin-left: -352px; */
+        width: 1022px;
+        margin-bottom: -7px;
+    }
+
+    .para p {
+        text-align: justify;
+        font-family: "Lexend Deca";
+        font-size: 40px;
+        font-weight: 500;
+        color: #000;
+        padding: 0px 5px;
+    }
+
+    #startJourneyButton {
+        font-family: "Lexend Deca";
+        margin-top: 20px;
+        padding: 31px 49px;
+        font-size: 54px;
+        font-weight: 600;
+        color: white;
+        background-color: #B6B6B6;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        opacity: 0.5;
+        pointer-events: none;
+        width: 96%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    #startJourneyButton.active {
+        background-color: #BE4747; /* Active blue color */
+        opacity: 1;
+        pointer-events: auto; /* Enable clicks */
+    }
+
+    .arrow {
+      position: relative;
+      width: 55px;
+      height: 55px;
+      margin-right: -2px;
+    }
+
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+.popup-content {
+    background: #fff;
+    width: 58%;
+    /* max-width: 1200px; */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    overflow: auto;
+    /* max-height: 90%; */
+    height: auto;
+    border-radius: 30px;
+}
+
+    .popup-content h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .popup-section {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+    .line {
+        flex: 1;
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .line h3 {
+        font-size: 52px;
+        margin-bottom: 57px;
+    }
+
+.line button {
+    /* display: block; */
+    width: 83%;
+    margin: 16px 0;
+    padding: 39px;
+    font-size: 43px;
+    background: #4a4a9c;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+    .line button:hover {
+        background: #3a3a7c;
+    }
+
+    button.disabled {
+        background-color: gray; /* Gray background for disabled buttons */
+        cursor: not-allowed;    /* Change cursor to indicate non-clickable */
+        opacity: 0.5;           /* Reduce opacity for visual clarity */
+    }
+
+    /* Popup styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; /* Adjust as needed */
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.popup-content {
+    position: relative;
+    padding: 20px;
+}
+
+/* Go Back button styling */
+.go-back {
+    position: absolute;
+    bottom: 20px; /* Adjust the position inside the popup */
+    right: 20px; /* Adjust the position inside the popup */
+    width: 80px;
+    height: 80px;
+    background: #b33a3a;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.go-back:hover {
+    background: #a32828;
+    transform: scale(1.1);
+}
+
+.go-back i {
+    font-size: 35px; /* Arrow icon size */
+    color: white;
+}
+
+
+    .close-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        background: red;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .close-popup:hover {
+        background: darkred;
+    }
+
+    .station-sel h2 {
+    font-family: "Lexend Deca";
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+
+    div#pickupStationLabel.text-overlay {
+        text-transform: uppercase;
+    }
+
+
+/*this is a responsive css*/
+@media screen and (max-width: 3840px) {
+    .box img {
+/*    margin-top: 581px;*/
+    margin-left: -65px;
+    }
+
+    .text-overlay {
+    top: 67%;
+    left: 47%;   
+    }
+
+}
+
+
+@media screen and (max-width: 1920px) {
+    .box2 {
+        margin-top: 525px;
+        width: 28%;
+    }
+
+    .heading h2{
+    font-size: 24px;
+    margin-right: -601px;
+    }
+
+    .para p {
+    font-size: 18px;
+    }
+
+    .box4 {
+    margin-top: 640px;
+    }
+
+    .box3 {
+    width: 28%;
+    }
+
+    .box4 {
+    width: 28%;
+    }
+
+    #startJourneyButton {
+        padding: 15px 33px;
+        font-size: 29px;
+        width: 94%;
+    }
+
+    .arrow {
+    width: 23px;
+    height: 22px;
+    margin-right: 0px;
+    }
+
+    .box img {
+        max-width: 117%;
+        margin-top: 203px;
+        margin-left: 0px;
+    }
+
+    .line button {
+    width: 65%;
+    padding: 17px;
+    font-size: 14px;
+    }
+
+    .line h3 {
+    font-size: 25px;
+    margin-bottom: 9px;
+    }
+
+    .go-back {
+    width: 40px;
+    height: 40px;
+    }
+
+    .go-back i {
+    font-size: 20px;
+    color: white;
+    }
+
+        .text-overlay {
+        top: 43%;
+        font-size: 26px;
+    }
+
+        .text-overlay h2 {
+        /* top: 60%; */
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+}

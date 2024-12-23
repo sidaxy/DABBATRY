@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="images/fevi.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dabbawala Journey</title>
+  <link rel="stylesheet" href="styles.css">
+
+  
+</head>
+<body style="background-color: #fdf6ec;">
+
+  <!-- main section -->
+  <div class="index-container">
+    
+    <img src="images/home-img-min1.jpg" alt="dabbawala image main" class="banner-image zoom-box">
+   
+    <div class="footer">
+      <div class="vitthal-img slide-in-up">
+        <!-- <a onclick="navigateToPage('marathi')" href="do-you-know.html"><img src="images/footer-image1.png" alt="" class="vitthal-image1 marathi"></a> -->
+        <a class="marathi" onclick="navigateToPage('marathi')"><img src="images/footer-image1.svg" class="vitthal-image1"></a>
+      </div>
+
+      <div>
+        <h1 class="title">A Day With Dabbawala Tour</h1>
+        <p class="subtitle">डब्बेवाला टूर - एक दिवस त्यांच्यासोबत</p>
+      </div>
+
+      <div class="vitthal-img slide-in-up">
+        <a href="do-you-know.html"><img src="images/footer-image2.svg" alt="" class="vitthal-image1"></a>
+      </div>
+    </div>
+
+  </div>
+  <!-- main section end -->
+
+
+  <script>
+    function navigateToPage(language) {
+      const url = language === 'marathi' ? 'do-you-know.html?lang=marathi' : 'do-you-know.html';
+      window.location.href = url;
+    }
+  </script>
+
+
+
+
+<!-- this is a animation effects -->
+ <style>
+    /* Element to animate */
+    .zoom-box {
+      animation: zoomIn 2000ms ease-in-out;
+    }
+
+    /* Keyframes for zoom-in animation */
+    @keyframes zoomIn {
+      0% {
+        transform: scale(0); /* Start at 0 size */
+        opacity: 0;          /* Completely transparent */
+      }
+      50% {
+        transform: scale(1.0); /* Slight overshoot */
+        opacity: 1;            /* Fully visible */
+      }
+     /* 100% {
+        transform: scale(1);  
+      }*/
+    }
+
+
+
+.slide-in-up {
+  transform: translateY(50px); 
+  animation: slideUp 2000ms ease-out forwards; 
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+
+  }
+
+
+
+
+
+
+
+
+  </style>
+
+
+<!-- this is for marathi translate -->
+
+
+
+</body>
+</html>
