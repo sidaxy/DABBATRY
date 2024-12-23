@@ -26,11 +26,11 @@
               <div class="frame-3">
                 <div class="frame-4">
                   <div class="text-wrapper-2"><h4>Dabba Number</h4></div>
-                  <p class="text-wrapper-3">R BNR 9 EX 12</p>
+                  <p class="text-wrapper-3" id="dabbaNumber">R BNR 9 EX 12</p>
                 </div>
                 <div class="frame-5">
                   <div class="text-wrapper-2"><h4>Duration Of Dabba Service</h4></div>
-                  <p class="text-wrapper-3">1 month (Dec to Jan)</p>
+                  <p class="text-wrapper-3" id="duration">Loading...</p>
                 </div>
               </div>
             </div>
@@ -110,6 +110,10 @@
         const options = {
             width: 750, // Set width
             height: 750, // Set height
+            color: {
+                dark: "#000000", // Dark color for the QR code itself
+                light: "#00000000" // Transparent background
+            }
         };
 
         // Generate the QR code
@@ -122,6 +126,14 @@
 
             // Append the QR code canvas to the div
             qrCodeDiv.appendChild(canvas);
+
+            // Add the shake effect every 10 seconds for 2 seconds duration
+            setInterval(() => {
+                qrCodeDiv.classList.add('shake');
+                setTimeout(() => {
+                    qrCodeDiv.classList.remove('shake');
+                }, 3000); // Shake duration of 2 seconds
+            }, 5000); // Shake every 10 seconds
         });
     });
 </script>
@@ -130,24 +142,114 @@
 
 
 
+<!-- date -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Get the current date
+  const currentDate = new Date();
+
+  // Get the current date (Day, Month)
+  const day = currentDate.getDate(); // Day of the month (e.g., 23)
+  const month = currentDate.toLocaleString('default', { month: 'short' }); // Short month name (e.g., Dec)
+
+  // Create a text for the current date
+  const startDateText = `${month} ${day}`;
+
+  // Calculate the date one month ahead
+  const nextMonthDate = new Date(currentDate);
+  nextMonthDate.setMonth(currentDate.getMonth() + 1); // Add 1 month
+
+  // Get the day and month for the next month
+  const nextMonthDay = nextMonthDate.getDate();
+  const nextMonth = nextMonthDate.toLocaleString('default', { month: 'short' });
+
+  // Create a text for the end date one month later
+  const endDateText = `${nextMonth} ${nextMonthDay}`;
+
+  // Create the time period text (e.g., "1 month (Dec 23 to Jan 23)")
+  const durationText = ` (${startDateText} to ${endDateText})`;
+
+  // Update the text content of the element with the ID 'duration'
+  document.getElementById('duration').textContent = durationText;
+});
+
+</script>
+
+
+<!-- dabba number  -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve the selected stations from localStorage
+    const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
+    const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
+
+    // Update the Dabba Number based on the selected stations
+    const stationCodes = {
+        "csmt": "R", // Chhatrapati Shivaji Maharaj Terminus
+        "dadar": "D", 
+        "kurla": "K", 
+        "thane": "T", 
+        "wadala": "W", 
+        "vashi": "V", 
+        "churchgate": "C", 
+        "bandra": "B", 
+        "andheri": "A", 
+        "dombivali": "D", 
+        "ghatkopar": "G", 
+        "byculla": "B", 
+        "virar": "V", 
+        "miraroad": "M", 
+        "borivali": "B"
+    };
+
+    // Generate Dabba Number
+    const pickupCode = stationCodes[pickupStation.toLowerCase()] || 'XX';  // Default to 'XX' if not found
+    const dropCode = stationCodes[dropStation.toLowerCase()] || 'XX';
+
+    // Construct the Dabba Number dynamically
+    const dabbaNumber = `${pickupCode} ${dropCode} 9 EX 12`;
+
+    // Update the Dabba Number on the page
+    document.getElementById('dabbaNumber').textContent = dabbaNumber;
+
+    // Update station names on the page
+    document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
+    document.getElementById('dropStation').querySelector('span').textContent = dropStation;
+
+    // Update placeholders in the timeline dynamically
+    document.querySelectorAll('.dynamicPickup').forEach(element => {
+        element.textContent = pickupStation;
+    });
+    document.querySelectorAll('.dynamicDrop').forEach(element => {
+        element.textContent = dropStation;
+    });
+});
+
+</script>
+
 
 
 <!-- this is station selection script -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Retrieve selected stations from localStorage
-        const pickupStation = localStorage.getItem('selectedStation') || 'Not Selected';
-        const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve the selected stations from localStorage
+    const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
+    const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
 
-        // Update the HTML with the station names
-        document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
-        document.getElementById('dropStation').querySelector('span').textContent = dropStation;
+    // Update station names in the main journey text
+    document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
+    document.getElementById('dropStation').querySelector('span').textContent = dropStation;
+
+    // Update all placeholders in the timeline dynamically
+    document.querySelectorAll('.dynamicPickup').forEach(element => {
+        element.textContent = pickupStation;
     });
-
-    function goBackToHomePage() {
-        // Redirect to the first page or home
-        window.location.href = 'pickup-station-page-working.html';
-    }
+    document.querySelectorAll('.dynamicDrop').forEach(element => {
+        element.textContent = dropStation;
+    });
+});
 </script>
 <!-- this is station selection script end-->
 
@@ -169,17 +271,17 @@
           "dadar": "दादर",
           "kurla": "कुर्ला",
           "thane": "ठाणे",
-          "wadla": "वडाळा रोड",
+          "wadala": "वडाळा",
           "vashi": "वाशी",
           "churchgate": "चर्चगेट",
           "bandra": "बांद्र",
           "andheri": "अंधेरी",
-          "dombivli":"डोंबिवली",
+          "dombivali":"डोंबिवली",
           "ghatkopar":"घाटकोपर",
-          "buculla":"भायखळा",
+          "byculla":"भायखळा",
           "virar":"विरार",
           "miraroad":"मीरा रोड",
-          "borivli":"बोरिवली"
+          "borivali":"बोरिवली"
     };
 
         function getQueryParam(param) {

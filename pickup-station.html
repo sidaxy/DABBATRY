@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Station Selector</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="pickup-station.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+
     <div class="container">
+        <!-- <div class="box box1">
+            <img src="images/station-bg.png" alt="Image 1">
+            <div class="text-overlay" id="button1" class="station-label pickup-station" onclick="openSlider(1)"><p style="color: #fff;">Pick-Up Station</p></div>
+        </div> -->
+
         <div class="box2 heading para">
             <h2>KNOW YOUR DABBA</h2>
             <p>The lunchboxes are picked up late in the morning, primarily delivered using bicycles and trains, and returned empty in the afternoon. Select the pick-up & drop-in station to begin the journey.</p>
+
         </div>
 
         <div class="box box3 station-sel">
@@ -22,13 +31,19 @@
         </div>
 
         <div class="box4 zoom-box">
-            <button id="startJourneyButton" onclick="TravelPage()">NEXT &nbsp;&nbsp; <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button id="nextButton" onclick="dropStationPage()">NEXT &nbsp;&nbsp; <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
 
-    <!-- Popup for station selection -->
-    <div class="popup-overlay" id="popupOverlay" style="display: none;">
+
+    <!-- stations -->
+
+    <div class="popup-overlay" id="popupOverlay" style="display: none">
         <div class="popup-content">
+
+
+            <!-- Inside the Popup Content -->
             <div class="popup-section">
                 <div class="line">
                     <h3>Western Line</h3>
@@ -56,116 +71,180 @@
                 </div>
             </div>
 
+
             <button class="go-back" onclick="closePopup()">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </button>
+
         </div>
     </div>
+    <!--  -->
 
 
+    <!-- translate -->
 
-    <script>
-        // Translation dictionary
-        const translations = {
-            "KNOW YOUR DABBA": "तुमचा डब्बा जाणून घ्या",
-          "The lunchboxes are picked up late in the morning, primarily delivered using bicycles and trains, and returned empty in the afternoon. Select the pick-up & drop-in station to begin the journey.": "लंचबॉक्सेस दुपारी उशिरा उचलल्या जातात, मुख्यतः बायकल्स आणि ट्रेन वापरून वितरित केल्या जातात, आणि दुपारी रिकाम्या परत येतात. प्रवास सुरू करण्यासाठी पिक अप आणि ड्रॉप-इन स्टेशन निवडा.",
-          "PICK UP STATION": "वाहतूक स्टेशन",
-          "DROP STATION": "वितरण स्टेशन",
-          "SELECT A DROP STATION": "शेवटचे स्टेशन निवडा",
-          "CSMT":"छशिमट",
-          "DADAR": "दादर",
-          "KURLA": "कुर्ला",
-          "THANE": "ठाणे",
-          "WADALA": "वडाळा",
-          "VASHI": "वाशी",
-          "CHURCHGATE": "चर्चगेट",
-          "BANDRA": "बांद्र",
-          "ANDHERI": "अंधेरी",
-          "DOMBIVALI":"डोंबिवली",
-          "GHATKOPAR":"घाटकोपर",
-          "BYCULLA":"भायखळा",
-          "VIRAR":"विरार",
-          "MIRA ROAD":"मीरा रोड",
-          "BORIVALI":"बोरिवली",
-            "PICK UP STATION": "वाहतूक स्टेशन",
-            "NEXT": "पुढे जा"
-        };
+<script>
+    const translations = {
+        "KNOW YOUR DABBA": "तुमचा डब्बा जाणून घ्या",
+        "The lunchboxes are picked up late in the morning, primarily delivered using bicycles and trains, and returned empty in the afternoon. Select the pick-up & drop-in station to begin the journey.": "लंचबॉक्सेस दुपारी उशिरा उचलल्या जातात, मुख्यतः बायकल्स आणि ट्रेन वापरून वितरित केल्या जातात, आणि दुपारी रिकाम्या परत येतात. प्रवास सुरू करण्यासाठी पिक अप आणि ड्रॉप-इन स्टेशन निवडा.",
+        "Western Line":"पश्चिम मार्ग",
+        "Central Line":"मध्य मार्ग",
+        "Harbor Line":"हार्बर मार्ग",
+        "PICK UP STATION": "वाहतूक स्टेशन",
+        "DROP STATION": "वितरण स्टेशन",
+        "SELECT A DROP STATION": "शेवटचे स्टेशन निवडा",
+        "CSMT":"छत्रपती शिवाजी महाराज टर्मिनस",
+        "DADAR": "दादर",
+        "KURLA": "कुर्ला",
+        "THANE": "ठाणे",
+        "WADALA": "वडाळा",
+        "VASHI": "वाशी",
+        "CHURCHGATE": "चर्चगेट",
+        "BANDRA": "बांद्र",
+        "ANDHERI": "अंधेरी",
+        "DOMBIVALI":"डोंबिवली",
+        "GHATKOPAR":"घाटकोपर",
+        "BYCULLA":"भायखळा",
+        "VIRAR":"विरार",
+        "MIRA ROAD":"मीरा रोड",
+        "BORIVALI":"बोरिवली",
+        "PICK UP STATION": "वाहतूक स्टेशन",
+        "NEXT": "पुढे जा"
+    };
 
-        // Utility to get query parameters
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
-        // Open the popup
-        function openPopup() {
-            document.getElementById('popupOverlay').style.display = 'flex';
-        }
-
-        // Close the popup
-        function closePopup() {
-            document.getElementById('popupOverlay').style.display = 'none';
-        }
-
-        // Handle station selection
-        document.querySelectorAll('.popup-section button').forEach(button => {
-            button.addEventListener('click', function () {
-                const selectedStation = this.getAttribute('data-station');
-                const selectedMarathi = this.getAttribute('data-marathi');
-                const label = document.getElementById('pickupStationLabel');
-                
-                // Display selected station in Marathi or English based on language
-                const lang = getQueryParam('lang');
-                if (lang === 'marathi') {
-                    label.innerHTML = `<h2>${selectedMarathi}</h2>`;
-                } else {
-                    label.innerHTML = `<h2>${selectedStation.toUpperCase()}</h2>`;
-                }
-
-                // Store the selected station in localStorage
-                localStorage.setItem('selectedStation', selectedStation);
-
-                // Enable the "NEXT" button
-                document.getElementById('startJourneyButton').classList.add('active');
-
-                // Close the popup
-                closePopup();
-            });
-        });
-
-        // Handle "NEXT" button click
-        function TravelPage() {
-            const selectedStation = localStorage.getItem('selectedStation');
-            if (selectedStation) {
-                const lang = getQueryParam('lang');
-                window.location.href = `drop-station.html${lang ? '?lang=' + lang : ''}`;
-            }
-        }
-
-        // Translate the page content if Marathi is selected
+    function translateToMarathi() {
         if (getQueryParam('lang') === 'marathi') {
-            document.querySelectorAll('h2, p, h3, button').forEach(element => {
+            document.querySelectorAll('h2, p, h3, a, button').forEach(element => {
                 const originalText = element.textContent.trim();
                 if (translations[originalText]) {
                     element.textContent = translations[originalText];
                 }
             });
         }
-    </script>
+    }
+
+    // Call the translation function on page load
+    translateToMarathi();
+</script>
 
 
+    <!--  -->
 
-    <!-- Animation effect -->
-    <style>
-        .zoom-box {
-            animation: zoomIn 2s ease-in-out;
+
+<script>
+    // Track if a station is selected
+    let stationSelected = false;
+
+    // Open the popup
+    function openPopup() {
+        const popupOverlay = document.getElementById('popupOverlay');
+        popupOverlay.style.display = 'flex';
+
+        // Add an event listener to detect clicks outside the popup content
+        popupOverlay.addEventListener('click', handleOutsideClick);
+    }
+
+    // Close the popup
+    function closePopup() {
+        const popupOverlay = document.getElementById('popupOverlay');
+        popupOverlay.style.display = 'none';
+
+        // Remove the event listener after closing the popup
+        popupOverlay.removeEventListener('click', handleOutsideClick);
+    }
+
+
+        // Handle station selection and save it in localStorage
+        function handleStationSelection(event) {
+            const stationButton = event.target;
+            const station = stationButton.getAttribute('data-station');
+
+            // Save the selected station in localStorage
+            localStorage.setItem('selectedPickupStation', station);
+
+            // Optionally, update the UI or perform other actions as needed
+            alert('Selected Pickup Station: ' + station);
         }
 
+    // Handle station selection from the popup
+    document.querySelectorAll('.popup-section button').forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedPickupStation = this.getAttribute('data-station'); // Get the selected station's name
+            const lang = getQueryParam('lang'); // Check for language preference
+
+            if (lang === 'marathi') {
+                // Update the label to Marathi if language is Marathi
+                const marathiName = this.getAttribute('data-marathi');
+                document.getElementById('pickupStationLabel').textContent = marathiName;
+            } else {
+                document.getElementById('pickupStationLabel').textContent = selectedPickupStation; // Default to English
+            }
+
+            // Store the selected station in localStorage
+            localStorage.setItem('selectedPickupStation', selectedPickupStation);
+
+            // Set the flag to true when a station is selected
+            stationSelected = true;
+
+            // Enable the "START JOURNEY" button
+            document.getElementById('nextButton').classList.add('active');
+
+            // Close the popup after selecting the station
+            closePopup();
+        });
+    });
+
+    // Function to handle the start journey button
+    function dropStationPage() {
+        if (stationSelected) {
+            const lang = getQueryParam('lang');
+            window.location.href = `drop-station.html${lang ? '?lang=' + lang : ''}`; // Redirect to the drop-station
+        }
+    }
+
+    // Function to handle clicks outside the popup content
+    function handleOutsideClick(event) {
+        const popupContent = document.querySelector('.popup-content');
+        if (!popupContent.contains(event.target)) {
+            closePopup();
+        }
+    }
+</script>
+
+
+
+
+    <!-- this is a animation effects -->
+    <style>
+        /* Element to animate */
+        .zoom-box {
+          animation: zoomIn 2s ease-in-out;
+        }
+    
+        /* Keyframes for zoom-in animation */
         @keyframes zoomIn {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); }
+          0% {
+            transform: scale(0); /* Start at 0 size */
+            opacity: 0;          /* Completely transparent */
+          }
+          50% {
+            transform: scale(1.2); /* Slight overshoot */
+            opacity: 1;            /* Fully visible */
+          }
+          100% {
+            transform: scale(1);   /* Final size */
+          }
         }
     </style>
+
+
+
+
 </body>
+
 </html>

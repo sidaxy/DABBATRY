@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Station Selector</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="drop-station.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 
         <div class="box box3 station-sel">
             <img src="images/station2.svg" alt="Image 2">
-            <div class="text-overlay" id="pickupStationLabel" class="station-label pickup-station" onclick="openPopup()">
+            <div class="text-overlay" id="dropStationLabel" class="station-label pickup-station" onclick="openPopup()">
                 <h2>DROP STATION</h2>
             </div>
         </div>
@@ -29,11 +30,12 @@
     </div>
 
 
+<!-- stations selection menu-->
 
-
-    <!-- Popup for station selection -->
-    <div class="popup-overlay" id="popupOverlay" style="display: none;">
+    <div class="popup-overlay" id="popupOverlay" style="display: none">
         <div class="popup-content">
+            
+            <!-- Inside the Popup Content -->
             <div class="popup-section">
                 <div class="line">
                     <h3>Western Line</h3>
@@ -62,127 +64,191 @@
             </div>
 
             <button class="go-back" onclick="closePopup()">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </button>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </button>
         </div>
     </div>
+<!-- stations selection menu end -->
 
 
 
 
+    <!-- translate -->
 
 <script>
-        const translations = {
-          "KNOW YOUR DABBA": "तुमचा डब्बा जाणून घ्या",
-          "The lunchboxes are picked up late in the morning, primarily delivered using bicycles and trains, and returned empty in the afternoon. Select the pick-up & drop-in station to begin the journey.": "लंचबॉक्सेस दुपारी उशिरा उचलल्या जातात, मुख्यतः बायकल्स आणि ट्रेन वापरून वितरित केल्या जातात, आणि दुपारी रिकाम्या परत येतात. प्रवास सुरू करण्यासाठी पिक अप आणि ड्रॉप-इन स्टेशन निवडा.",
-          "PICK UP STATION": "वाहतूक स्टेशन",
-          "DROP STATION": "वितरण स्टेशन",
-          "SELECT A DROP STATION": "शेवटचे स्टेशन निवडा",
-          "CSMT":"छशिमट",
-          "DADAR": "दादर",
-          "KURLA": "कुर्ला",
-          "THANE": "ठाणे",
-          "WADALA": "वडाळा",
-          "VASHI": "वाशी",
-          "CHURCHGATE": "चर्चगेट",
-          "BANDRA": "बांद्र",
-          "ANDHERI": "अंधेरी",
-          "DOMBIVALI":"डोंबिवली",
-          "GHATKOPAR":"घाटकोपर",
-          "BYCULLA":"भायखळा",
-          "VIRAR":"विरार",
-          "MIRA ROAD":"मीरा रोड",
-          "BORIVALI":"बोरिवली"
-        };
+    const translations = {
+        "KNOW YOUR DABBA": "तुमचा डब्बा जाणून घ्या",
+        "The lunchboxes are picked up late in the morning, primarily delivered using bicycles and trains, and returned empty in the afternoon. Select the pick-up & drop-in station to begin the journey.": "लंचबॉक्सेस दुपारी उशिरा उचलल्या जातात, मुख्यतः बायकल्स आणि ट्रेन वापरून वितरित केल्या जातात, आणि दुपारी रिकाम्या परत येतात. प्रवास सुरू करण्यासाठी पिक अप आणि ड्रॉप-इन स्टेशन निवडा.",
+        "Western Line":"पश्चिम मार्ग",
+        "Central Line":"मध्य मार्ग",
+        "Harbor Line":"हार्बर मार्ग",
+        "PICK UP STATION": "वाहतूक स्टेशन",
+        "DROP STATION": "वितरण स्टेशन",
+        "SELECT A DROP STATION": "शेवटचे स्टेशन निवडा",
+        "CSMT":"छत्रपती शिवाजी महाराज टर्मिनस",
+        "DADAR": "दादर",
+        "KURLA": "कुर्ला",
+        "THANE": "ठाणे",
+        "WADALA": "वडाळा",
+        "VASHI": "वाशी",
+        "CHURCHGATE": "चर्चगेट",
+        "BANDRA": "बांद्र",
+        "ANDHERI": "अंधेरी",
+        "DOMBIVALI":"डोंबिवली",
+        "GHATKOPAR":"घाटकोपर",
+        "BYCULLA":"भायखळा",
+        "VIRAR":"विरार",
+        "MIRA ROAD":"मीरा रोड",
+        "BORIVALI":"बोरिवली",
+        "PICK UP STATION": "वाहतूक स्टेशन",
+        "NEXT": "पुढे जा"
+    };
 
-        // Utility to get query parameters
-        function getQueryParam(param) {
-          const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(param);
-        }
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
-        // Translate the page content if Marathi is selected
+    function translateToMarathi() {
         if (getQueryParam('lang') === 'marathi') {
-            document.querySelectorAll('h2, p, h3, button').forEach(element => {
+            document.querySelectorAll('h2, p, h3, a, button').forEach(element => {
                 const originalText = element.textContent.trim();
                 if (translations[originalText]) {
                     element.textContent = translations[originalText];
                 }
             });
         }
+    }
 
-        function TravelPage() {
-          const lang = getQueryParam('lang');
-          window.location.href = `travel.html${lang ? '?lang=' + lang : ''}`;
-        }
+    // Call the translation function on page load
+    translateToMarathi();
+</script>
+<!--  -->
 
-        // Open the popup
-        function openPopup() {
-            document.getElementById('popupOverlay').style.display = 'flex';
-        }
 
-        // Close the popup
-        function closePopup() {
-            document.getElementById('popupOverlay').style.display = 'none';
-        }
+<script>
+// Initialize the selected pickup station from localStorage
+let selectedPickupStation = localStorage.getItem('selectedPickupStation');
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const popupOverlay = document.getElementById('popupOverlay');
-            const popupContent = document.querySelector('.popup-content');
-
-            // Retrieve the selected pickup station ID from localStorage
-            const selecteddropStation = localStorage.getItem('selectedStation');
-
-            if (selecteddropStation) {
-                // Disable all buttons with the same data-station ID as the pickup station
-                document.querySelectorAll('.popup-section button').forEach(button => {
-                    const stationData = button.getAttribute('data-station');
-
-                    if (stationData === selecteddropStation) {
-                        // Disable the button and change its appearance
-                        button.disabled = true;
-                        button.style.backgroundColor = 'gray';
-                        button.style.cursor = 'not-allowed';
-                        button.classList.add('disabled');
-                    }
-                });
+// Disable the selected pickup station on the drop page when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.popup-section button');
+    
+    // Disable the pickup station button on the drop page
+    if (selectedPickupStation) {
+        buttons.forEach(button => {
+            const station = button.getAttribute('data-station');
+            if (station === selectedPickupStation) {
+                button.classList.add('disabled');  // Visual indication of being disabled
+                button.disabled = true;           // Disable the button
             }
-
-            let dropStationSelected = false;
-
-            // Handle station selection
-            document.querySelectorAll('.popup-section button').forEach(button => {
-                button.addEventListener('click', function () {
-                    if (!this.disabled) {
-                        const selectedDropStation = this.getAttribute('data-station');
-
-                        // Store the selected drop station
-                        localStorage.setItem('selectedDropStation', selectedDropStation);
-
-                        // Update the drop station label
-                        document.getElementById('pickupStationLabel').textContent = selectedDropStation;
-
-                        dropStationSelected = true;
-
-                        // Enable "START JOURNEY" button
-                        const startJourneyButton = document.getElementById('startJourneyButton');
-                        startJourneyButton.classList.add('active');
-                        startJourneyButton.disabled = false;
-                        startJourneyButton.style.opacity = '1';
-                        closePopup();
-                    }
-                });
-            });
-
-            // Handle popup close when clicking outside the content
-            popupOverlay.addEventListener('click', function (event) {
-                if (!popupContent.contains(event.target)) {
-                    closePopup();
-                }
-            });
         });
+    }
 
-    </script>
+    // Initially disable the "Start Journey" button
+    const startJourneyButton = document.getElementById('startJourneyButton');
+    if (startJourneyButton) {
+        startJourneyButton.disabled = true;  // Disable it initially
+        startJourneyButton.classList.remove('active');  // Ensure it doesn't have the active class
+    }
+});
+
+// Function to handle station selection on the drop page
+function handleDropStationSelection(event) {
+    const stationButton = event.target;
+    const station = stationButton.getAttribute('data-station');
+    const stationMarathi = stationButton.getAttribute('data-marathi');
+
+    // Update the drop station label (can be any element you want)
+    const dropStationLabel = document.getElementById('dropStationLabel');
+    dropStationLabel.textContent = stationMarathi;
+
+    // Save the selected station to localStorage
+    localStorage.setItem('selectedDropStation', station);
+
+    // Disable the selected station button
+    stationButton.classList.add('disabled');  // Visual indication of being disabled
+    stationButton.disabled = true;            // Disable the button
+
+    // Enable the "Start Journey" button after selecting a drop station
+    const startJourneyButton = document.getElementById('startJourneyButton');
+    if (startJourneyButton) {
+        startJourneyButton.disabled = false;  // Enable the button
+        startJourneyButton.classList.add('active');  // Add active class for styling
+    }
+
+    // Close the popup after selection
+    closePopup();
+}
+
+// Attach event listener to each button for station selection
+document.querySelectorAll('.popup-section button').forEach(button => {
+    button.addEventListener('click', handleDropStationSelection);
+});
+
+
+// Function to handle "Start Journey" button click
+function startJourneyButtonClick() {
+    const startJourneyButton = document.getElementById('startJourneyButton');
+
+    if (!startJourneyButton.disabled) {  // Ensure the button is not disabled
+        const lang = getQueryParam('lang');  // Assuming you have a function to get query params
+        window.location.href = `travel.html${lang ? '?lang=' + lang : ''}`;  // Redirect to travel.html
+    }
+}
+
+// Attach the "Start Journey" button click event
+const startJourneyButton = document.getElementById('startJourneyButton');
+if (startJourneyButton) {
+    startJourneyButton.addEventListener('click', startJourneyButtonClick);
+}
+
+// Helper function to get query parameters (if needed for language)
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+</script>
+
+
+
+
+
+<!-- popup station list code -->
+
+<script>
+
+    // Open the popup
+    function openPopup() {
+        const popupOverlay = document.getElementById('popupOverlay');
+        popupOverlay.style.display = 'flex';
+
+        // Add an event listener to detect clicks outside the popup content
+        popupOverlay.addEventListener('click', handleOutsideClick);
+    }
+
+    // Close the popup
+    function closePopup() {
+        const popupOverlay = document.getElementById('popupOverlay');
+        popupOverlay.style.display = 'none';
+
+        // Remove the event listener after closing the popup
+        popupOverlay.removeEventListener('click', handleOutsideClick);
+    }
+
+    // Function to handle clicks outside the popup content
+    function handleOutsideClick(event) {
+        const popupContent = document.querySelector('.popup-content');
+        if (!popupContent.contains(event.target)) {
+            closePopup();
+        }
+    }
+</script>
+<!-- popup station list code end-->
+
+
+
+
 
 
           <!-- this is a animation effects -->

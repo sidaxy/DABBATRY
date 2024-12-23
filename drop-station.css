@@ -51,25 +51,26 @@ body {
         margin-top: 1575px;
     }
 
-.box img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 438px;
-}
+    .box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 421px;
+    }
 
     .text-overlay {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 65px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    text-align: center;
-    cursor: pointer;
-}
+        position: absolute;
+        top: 16%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 65px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
 
     .slider-container {
         position: fixed;
@@ -335,109 +336,15 @@ body {
     }
 
     .station-sel h2 {
-    font-family: "Lexend Deca";
-    font-size: 60px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 24px;
-}
-
-
-    div#pickupStationLabel.text-overlay {
-        text-transform: uppercase;
+        font-family: "Lexend Deca";
+        font-size: 60px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 45px;
     }
 
-
-/*this is a responsive css*/
-@media screen and (max-width: 3840px) {
-    .box img {
-/*    margin-top: 581px;*/
-    margin-left: -65px;
-    }
-
-    .text-overlay {
-    top: 67%;
-    left: 47%;   
-    }
-
-}
-
-
-@media screen and (max-width: 1920px) {
-    .box2 {
-        margin-top: 525px;
-        width: 28%;
-    }
-
-    .heading h2{
-    font-size: 24px;
-    margin-right: -601px;
-    }
-
-    .para p {
-    font-size: 18px;
-    }
-
-    .box4 {
-    margin-top: 640px;
-    }
-
-    .box3 {
-    width: 28%;
-    }
-
-    .box4 {
-    width: 28%;
-    }
-
-    #startJourneyButton {
-        padding: 15px 33px;
-        font-size: 29px;
-        width: 94%;
-    }
-
-    .arrow {
-    width: 23px;
-    height: 22px;
-    margin-right: 0px;
-    }
-
-    .box img {
-        max-width: 117%;
-        margin-top: 203px;
-        margin-left: 0px;
-    }
-
-    .line button {
-    width: 65%;
-    padding: 17px;
-    font-size: 14px;
-    }
-
-    .line h3 {
-    font-size: 25px;
-    margin-bottom: 9px;
-    }
-
-    .go-back {
-    width: 40px;
-    height: 40px;
-    }
-
-    .go-back i {
-    font-size: 20px;
-    color: white;
-    }
-
-        .text-overlay {
-        top: 43%;
-        font-size: 26px;
-    }
-
-        .text-overlay h2 {
-        /* top: 60%; */
-        font-size: 24px;
-        margin-top: 20px;
-    }
-
+    button.disabled {
+    background-color: gray; /* Gray background for disabled buttons */
+    cursor: not-allowed;    /* Change cursor to indicate non-clickable */
+    opacity: 0.5;           /* Reduce opacity for visual clarity */
 }

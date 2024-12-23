@@ -143,7 +143,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Retrieve the selected stations from localStorage
-    const pickupStation = localStorage.getItem('selectedStation') || 'Not Selected';
+    const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
     const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
 
     // Update station names in the main journey text
@@ -168,18 +168,18 @@ document.addEventListener('DOMContentLoaded', function () {
         "Raju Dada": "राजू दादा",
         "His Daily Routine": "त्याचा रोजचा दिनक्रम",
         "THE DABBA JOURNEY": "डब्ब्याचा प्रवास",
-          "csmt":"छशिमट",
-          "dadar": "दादर",
+          "CSMT":"छत्रपती शिवाजी महाराज टर्मिनस",
+        "dadar": "दादर",
           "kurla": "कुर्ला",
           "thane": "ठाणे",
-          "wadla": "वडाळा रोड",
+          "wadala": "वडाळा",
           "vashi": "वाशी",
           "churchgate": "चर्चगेट",
           "bandra": "बांद्र",
           "andheri": "अंधेरी",
           "dombivali":"डोंबिवली",
           "ghatkopar":"घाटकोपर",
-          "buculla":"भायखळा",
+          "byculla":"भायखळा",
           "virar":"विरार",
           "miraroad":"मीरा रोड",
           "borivali":"बोरिवली",
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Retrieve selected stations from localStorage
-    const pickupStation = localStorage.getItem('selectedStation') || 'Not Selected';
+    const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
     const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
 
     // Update the HTML with the station names
@@ -237,29 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get the video element
     const travelVideo = document.getElementById('travelVideo');
 
-    // Define video sequences for different combinations
-      // const videoSequences = {
-      //     'ANDHERI-CSMT': [
-      //         'images/andheripickup.mp4',
-      //         'images/andheridrop.mp4',
-      //         'images/cstpickup.mp4'
-      //     ],
-      //     'CSMT-ANDHERI': [
-      //         'images/cstpickup.mp4',
-      //         'images/andheripickup.mp4',
-      //         'images/andheridrop.mp4'
-      //     ],
-      //     'CSMT-KURLA': [
-      //         'images/dabbawala-andheri-drop.webm',
-      //         'images/dabbawala-Chhatrapati-Shivaji-Maharaj-Terminus-(CSMT)Pickup.webm',
-      //         'images/dabbawala-chhatrapati-shivaji-maharaj-terminus-drop.webm'
-      //     ],
-      //     'THANE-MIRA ROAD': [
-      //         'images/dabbawala-andheri-drop.webm',
-      //         'images/dabbawala-Chhatrapati-Shivaji-Maharaj-Terminus-(CSMT)Pickup.webm',
-      //         'images/dabbawala-chhatrapati-shivaji-maharaj-terminus-drop.webm'
-      //     ]
-      // };
+
 
       // Determine the key for the selected combination
       const combinationKey = `${pickupStation}-${dropStation}`;
@@ -372,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Retrieve selected stations from localStorage
-        const pickupStation = localStorage.getItem('selectedStation') || 'Not Selected';
+        const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
         const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
 
         // Update the HTML with the station names
