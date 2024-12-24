@@ -8,7 +8,7 @@ body {
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-image: url('images/main-bg-pd.jpg');
+        background-image: url('images/droppage-bg.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -347,4 +347,4 @@ body {
     background-color: gray; /* Gray background for disabled buttons */
     cursor: not-allowed;    /* Change cursor to indicate non-clickable */
     opacity: 0.5;           /* Reduce opacity for visual clarity */
-}
+    }

@@ -38,6 +38,16 @@
     white-space: nowrap;
 }
 
+
+.scan-me{
+    font-family: "Montserrat", Helvetica;
+    text-align: center;
+    font-size: 51px;
+    font-weight: bold;
+    margin-top: -45px;
+    margin-left: -238px;
+}
+
 .frame-wrapper {
   display: flex;
   flex-direction: column;
