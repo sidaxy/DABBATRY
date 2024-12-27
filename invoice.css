@@ -24,6 +24,24 @@
     left: 213px;
 }
 
+
+.qr_scan {
+    width: 1095px;
+    /* float: right; */
+    margin-left: 2040px;
+    position: absolute;
+    margin-top: 738px;
+    object-fit: cover;
+}
+
+.scan_div {
+/*    position: absolute;*/
+    width: 100%x;
+    height: 401px;
+    top: 667px;
+/*    left: 213px;*/
+}
+
 .text-wrapper h2{
     position: relative;
     align-self: stretch;

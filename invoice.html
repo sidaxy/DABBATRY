@@ -49,9 +49,14 @@
         </div>
         
         <!-- <img class="mumbai-dabbawala zoom-box" src="images/scan-me.svg" /> -->
-        <div class="mumbai-dabbawala" id="qrcode">
-          <p id="scan-text" class="scan-me">Scan Me</p>
+        <div class="scan_div">
+          <div class="mumbai-dabbawala" id="qrcode">
+          </div>
+          <img src="images/scan-img.svg" class="qr_scan">
+          
+
         </div>
+
 
         <div class="ellipse"></div>
 
@@ -132,12 +137,12 @@
             qrCodeDiv.appendChild(canvas);
 
             // Add the shake effect every 10 seconds for 2 seconds duration
-            setInterval(() => {
-                qrCodeDiv.classList.add('shake');
-                setTimeout(() => {
-                    qrCodeDiv.classList.remove('shake');
-                }, 3000); // Shake duration of 2 seconds
-            }, 5000); // Shake every 10 seconds
+            // setInterval(() => {
+            //     qrCodeDiv.classList.add('shake');
+            //     setTimeout(() => {
+            //         qrCodeDiv.classList.remove('shake');
+            //     }, 3000); 
+            // }, 5000); 
         });
     });
 </script>
@@ -309,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "Pick Up Station":"वाहतूक स्टेशन",
       "Drop In Station": "शेवटचे स्टेशन",
       "Scan Me":"डब्बा सेवेचा लाभ घेण्यासाठी इथे स्कॅन करा",
-      "csmt":"छशिमट",
+      "csmt":"छत्रपती शिवाजी महाराज ट.",
           "dadar": "दादर",
           "kurla": "कुर्ला",
           "thane": "ठाणे",
