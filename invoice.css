@@ -56,14 +56,24 @@
     white-space: nowrap;
 }
 
+.clear{
+    clear: all;
+}
 
-.scan-me{
+
+.scan-me {
     font-family: "Montserrat", Helvetica;
     text-align: center;
-    font-size: 51px;
+    font-size: 50px;
     font-weight: bold;
-    margin-top: -45px;
-    margin-left: -238px;
+    margin-top: 766px;
+    margin-left: 22px;
+    position: absolute;
+}
+
+
+.scan-me span{
+    font-size: 80px;
 }
 
 .frame-wrapper {
@@ -140,7 +150,7 @@
     position: absolute;
     height: 1000px;
     width: 1000px;
-    top: 474px;
+    top: 430px;
     right: 170px;
 }
 
