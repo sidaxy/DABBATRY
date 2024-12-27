@@ -337,3 +337,175 @@ body {
             color: #fff;
             margin-bottom: 45px;
         }
+
+
+        /* Mobile Styles */
+
+/* Media Query for Small Screens (Mobile) */
+@media only screen and (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .box {
+        width: 100%;
+        margin-bottom: 20px;
+        height: 150px;
+    }
+
+    .box2 {
+        width: 100%;
+        margin-top: -23px;
+        margin-bottom: 47px;
+        background-color: rgba(255, 255, 255, 0.4); /* Light transparent white */
+    }
+
+        .box4 {
+        width: 45%;
+        margin-top: 156px;
+        float: right;
+        display: block;
+        margin-right: -188px;
+    }
+
+
+
+    .box img {
+        height: 473px;
+        margin-top: 99px;
+        margin-top: 215px;
+    }
+
+    .text-overlay {
+        font-size: 40px;
+        top: 70%;
+        transform: translate(-50%, -50%);
+    }
+
+    #nextButton {
+        padding: 20px 40px;
+        font-size: 40px;
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .popup-content {
+        width: 80%;
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .popup-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .line {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .line button {
+        width: 86%;
+        font-size: 36px;
+        padding: 20px;
+    }
+
+    .heading h2 {
+    text-align: justify;
+    font-family: "Lexend Deca";
+    font-size: 22px;
+    font-weight: 600;
+    color: #945B2B;
+    /* left: 10px; */
+    /* margin-left: -352px; */
+    width: 100%;
+    margin-bottom: -7px;
+}
+
+    .para p {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    .go-back {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    .popup-overlay {
+        align-items: flex-start;
+    }
+
+        .station-sel h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .line h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    }
+
+    .line button {
+        font-size: 15px;
+        padding: 11px;
+    }
+
+    .popup-section {
+        max-height: 80vh; /* Adjust height for mobile view */
+        overflow-y: scroll; /* Ensure scrolling on small screens */
+    }
+
+    .line {
+        flex: 1;
+    }
+
+    .text-overlay {
+        font-size: 20px;
+    }
+}
+
+/* Media Query for Extra Small Screens (Very small mobile or portrait mode) */
+@media only screen and (max-width: 480px) {
+
+    #nextButton {
+        padding: 15px 30px;
+        font-size: 30px;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+
+    .popup-section {
+        margin-bottom: 10px;
+    }
+
+  
+
+    .heading h2 {
+        font-size: 20px;
+        padding-left: 16px;
+    }
+
+    .para p {
+        font-size: 15px;
+    }
+
+    .go-back {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+        #nextButton {
+        padding: 15px 30px;
+        font-size: 11px;
+    }
+}

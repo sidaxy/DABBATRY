@@ -234,3 +234,149 @@
 }
 
 }
+
+
+@media screen and (max-width: 768px) {
+    /* Adjust the layout of the main container */
+    .frame-2 {
+        width: 76%;
+        padding: 20px;
+        top: 54px;
+        left: 24px;
+    }
+
+    /* Adjust text size for headings and paragraphs */
+    .text-wrapper h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .text-wrapper-2 h4 {
+        font-size: 20px;
+    }
+
+    .text-wrapper-3 {
+        font-size: 18px;
+    }
+
+    /* Adjust QR code section */
+    .mumbai-dabbawala {
+        height: 250px;
+        width: 250px;
+        top: 100px;
+        right: 50px;
+    }
+
+    /* Adjust button */
+    .refresh-btn {
+        position: absolute;
+        bottom: 56px;
+        left: 77%;
+        /* transform: translateX(-50%); */
+    }
+
+    .refresh-btn img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Adjust the frame-3 layout to stack columns */
+        .frame-3 {
+        display: block;
+        width: 100%;
+        margin-bottom: -10px;
+    }
+
+    .frame-4 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Adjust the image size */
+        .image {
+        width: 90px;
+        height: 90px;
+        top: 12px;
+        left: 86%;
+        transform: translateX(-50%);
+    }
+
+    /* Adjust the text inside the frame */
+    .text-wrapper-3 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* QR code shake animation */
+    .mumbai-dabbawala {
+        animation: none; /* Disable shaking on mobile */
+    }
+
+    /* Adjust the layout of the footer text */
+    .footer-text {
+        font-size: 18px;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    /* Adjust the background ellipse for small screens */
+    .ellipse {
+        width: 12px;
+        height: 12px;
+        top: -30px;
+        left: 45%;
+    }
+
+    /* Hide extra large elements */
+    .overlap {
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+    }
+SS
+    /* Responsive typography and alignment */
+    .scan-me {
+        font-size: 20px;
+        margin-top: 365px;
+        margin-left: 0;
+        text-align: revert;
+        margin-bottom: -5px;
+    }
+
+    .frame-5 {
+        width: 100%;
+    }
+
+    /* Additional adjustments for very small screens (less than 480px) */
+    @media screen and (max-width: 480px) {
+        .text-wrapper h2 {
+            font-size: 24px;
+            height: 0px;
+        }
+
+        .text-wrapper-2 h4 {
+            font-size: 12px;
+        }
+
+        .text-wrapper-3 {
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .frame-3 {
+            gap: 10px;
+        }
+
+        .mumbai-dabbawala {
+            height: 200px;
+            width: 200px;
+            top: 50px;
+        }
+
+        .refresh-btn img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}

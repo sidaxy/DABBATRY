@@ -47,10 +47,11 @@
           </div>
           <img class="image" src="images/dabbawala-icon.svg" />
         </div>
+        
         <!-- <img class="mumbai-dabbawala zoom-box" src="images/scan-me.svg" /> -->
         <div class="mumbai-dabbawala" id="qrcode">
-        <p id="scan-text" class="scan-me">Scan Me</p>
-      </div>
+          <p id="scan-text" class="scan-me">Scan Me</p>
+        </div>
 
         <div class="ellipse"></div>
 
@@ -111,8 +112,8 @@
 
         // QR code options
         const options = {
-            width: 750, // Set width
-            height: 750, // Set height
+            width: window.innerWidth < 768 ? 150 : 750, // Set width to 300px for small screens (mobile) and 750px for larger screens
+            height: window.innerWidth < 768 ? 150 : 750, // Same for height
             color: {
                 dark: "#000000", // Dark color for the QR code itself
                 light: "#00000000" // Transparent background

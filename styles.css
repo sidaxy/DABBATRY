@@ -1198,3 +1198,165 @@ body {
   }
 
 }
+
+
+
+
+/* For 768px to 480px screen width */
+@media screen and (max-width: 768px) {
+
+  .title, .subtitle {
+    display: none;
+  }
+
+  .footer {
+    flex-direction: row; /* Keeps images side by side */
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    justify-content: center; /* Centers items */
+
+  }
+
+  .vitthal-image1 {
+    margin-top: -131px;
+  }
+
+  .title, .subtitle {
+    flex: 1 0 100%; /* Make the title and subtitle span full width */
+    text-align: center;
+    font-size: 1rem; /* Reduce font size */
+  }
+
+  .banner-image {
+    object-fit: cover;
+  }
+
+   .main-text-container {
+    flex-direction: column; /* Stack the text sections vertically */
+    align-items: center;
+/*    margin-top: 20px;*/
+  }
+
+  .text-left, .text-right {
+    width: 90%; /* Reduce the width to fit the screen */
+    margin-bottom: 20px; /* Add spacing between stacked sections */
+    text-align: center; /* Center-align the text */
+  }
+
+  .text-left h2, .text-left p, 
+  .text-right h2, .text-right p {
+    font-size: 1.2rem; /* Reduce font size for smaller screens */
+  }
+
+  .text_count {
+    font-size: 2rem; /* Adjust number size */
+  }
+
+  .text_count_p {
+    font-size: 1rem; /* Adjust subtitle size */
+  }
+
+  .cycle img {
+    max-width: 600px; /* Reduce image size for smaller screens */
+  }
+
+  .road {
+    height: 15%;
+  }
+
+  .ftr_btn {
+    font-size: 1rem; /* Reduce button font size */
+    padding: 10px 20px;
+  }
+
+  .img-logo {
+    width: 100%;
+    max-width: 150px;
+    margin: 10px auto;
+    display: block;
+}
+    .mumbai-city-bg {
+        top: 0%;
+    }
+}
+
+/* For 480px and below */
+@media screen and (max-width: 480px) {
+  .footer {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .vitthal-img {
+    margin: 0;
+  }
+
+  .vitthal-image1 {
+    width: 150px; /* Further reduce image size */
+  }
+
+  .title, .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .img-logo {
+    width: 150px; /* Resize logo for smaller screens */
+    margin: 10px auto; /* Center the logo */
+  }
+
+   .main-text-container {
+    margin-top: 240px; /* Add space at the top */
+  }
+
+  .text-right {
+    width: 100%; /* Full width */
+    margin-bottom: 15px;
+  }
+
+    .text-left {
+        width: 100%;
+        margin-bottom: 389px;
+        float: right;
+    }
+
+  .text-left h2, .text-left p, .text-right h2, .text-right p {
+        font-size: 15px;
+        text-align: left;
+        padding-left: 5px;
+        margin-top: -6px;
+    }
+
+  .text_count {
+    font-size: 1.5rem; /* Further reduce number size */
+  }
+
+  .text_count_p {
+    font-size: 0.9rem; /* Adjust subtitle size */
+  }
+
+  .cycle img {
+    max-width: 150px; /* Further reduce image size */
+    margin-bottom: -34px;
+  }
+
+  .road {
+    height: 12%;
+  }
+
+  .ftr_btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .btn-next_1 button {
+    float: right;
+    padding: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-right: 18px;
+    background-color: #BE4747;
+    border-radius: 40px;
+    border: 2px solid #414141;
+    box-shadow: 10px 5px 5px black;
+  }
+
+}
