@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline with Data Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      padding: 15px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      background-color: #fff;
+      opacity: 0.5;
+      transition: all 0.3s ease;
+      transform: translateY(20px) scale(1);
+      z-index: 0;
+    }
+
+    .timeline-item.active {
+      opacity: 1;
+      transform: translateY(-20px) scale(1.1);
+      z-index: 10;
+    }
+
+    .timeline-item h2.active {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Timeline items -->
+    <div class="timeline-item" data-content="Timeline 1 Data">
+      <h2>Timeline 1</h2>
+      <p class="timeline-content"></p>
+    </div>
+    <div class="timeline-item" data-content="Timeline 2 Data">
+      <h2>Timeline 2</h2>
+      <p class="timeline-content"></p>
+    </div>
+    <div class="timeline-item" data-content="Timeline 3 Data">
+      <h2>Timeline 3</h2>
+      <p class="timeline-content"></p>
+    </div>
+    <div class="timeline-item" data-content="Timeline 4 Data">
+      <h2>Timeline 4</h2>
+      <p class="timeline-content"></p>
+    </div>
+    <div class="timeline-item" data-content="Timeline 5 Data">
+      <h2>Timeline 5</h2>
+      <p class="timeline-content"></p>
+    </div>
+    <div class="timeline-item" data-content="Timeline 6 Data">
+      <h2>Timeline 6</h2>
+      <p class="timeline-content"></p>
+    </div>
+    <div class="timeline-item" data-content="Timeline 7 Data">
+      <h2>Timeline 7</h2>
+      <p class="timeline-content"></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const timelineItems = document.querySelectorAll('.timeline-item'); // Get all timeline items
+      let currentIndex = 0; // Start with the first item
+      let forward = true; // Flag to determine the direction (forward or backward)
+
+      function activateTimeline() {
+        // Remove "active" class from all items and reset the transforms
+        timelineItems.forEach((item, index) => {
+          item.classList.remove('active');
+          item.style.transform = "translateY(20px) scale(1)";
+          item.style.zIndex = '0'; // Reset z-index to ensure items are stacked in order
+
+          // Remove underline from all titles
+          const title = item.querySelector('h2');
+          if (title) {
+            title.classList.remove('active');
+          }
+
+          // Reset the content paragraph
+          const content = item.querySelector('.timeline-content');
+          content.textContent = '';
+        });
+
+        // Move the current active item to the center of the list
+        const currentItem = timelineItems[currentIndex];
+        const title = currentItem.querySelector('h2');
+        const contentParagraph = currentItem.querySelector('.timeline-content');
+        
+        // Add "active" class to the current item and bring it to the top
+        currentItem.classList.add('active');
+        currentItem.style.transform = "translateY(-20px) scale(1.1)";
+        currentItem.style.zIndex = '10'; // Bring the active item to the top
+
+        // Move the active item to the center of the container
+        const parent = currentItem.parentNode;
+        const middleIndex = Math.floor(timelineItems.length / 2);
+        
+        // Insert the current item into the center position in the container
+        parent.insertBefore(currentItem, parent.children[middleIndex]);
+
+        // Add underline to the title of the active item
+        if (title) {
+          title.classList.add('active');
+        }
+
+        // Display the content of the current active timeline item inside its own container
+        const content = currentItem.getAttribute('data-content');
+        contentParagraph.textContent = content;
+
+        // Update the index for the next active item
+        if (forward) {
+          currentIndex++;
+          if (currentIndex >= 3) {
+            currentIndex = 3; // Keep timeline 4 active
+            forward = false; // Switch direction after 3
+          }
+        } else {
+          currentIndex++;
+          if (currentIndex >= timelineItems.length) {
+            currentIndex = 3; // Loop back to the middle timeline (4)
+          }
+        }
+
+        // Set the timeout for the next item to become active after a fixed duration
+        setTimeout(activateTimeline, 4290); // 4.29 seconds per item
+      }
+
+      // Start the cycle when the page loads
+      activateTimeline();
+    });
+  </script>
+</body>
+</html>
