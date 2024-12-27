@@ -51,8 +51,9 @@
         <!-- <img class="mumbai-dabbawala zoom-box" src="images/scan-me.svg" /> -->
         <div class="scan_div">
           <div class="mumbai-dabbawala" id="qrcode">
-            <p class="scan-me"><span>Scan Me</span> <br>To Start Your Dabba Service</p>
-
+            <p class="scan-me">
+                <span>Scan Me</span> <br> <span style="font-size:58px; color: #87643a;">To Start Your Dabba Service</span>
+            </p>
           </div>
           <!-- <div>
             <p class="scan-me"><span>Scan Me</span> <br>To Start Your Dabba Service</p>
@@ -318,7 +319,8 @@ document.addEventListener('DOMContentLoaded', function () {
       "Duration Of Dabba Service": "डबा सेवाचा कालावधी",
       "Pick Up Station":"वाहतूक स्टेशन",
       "Drop In Station": "शेवटचे स्टेशन",
-      "Scan Me To Start Your Dabba Service":"डब्बा सेवेचा लाभ घेण्यासाठी इथे स्कॅन करा",
+      "Scan Me":"इथे स्कॅन करा",
+      "To Start Your Dabba Service": "डब्बा सेवा सुरू करण्यासाठी",
       "csmt":"छत्रपती शिवाजी महाराज ट.",
           "dadar": "दादर",
           "kurla": "कुर्ला",
@@ -337,18 +339,18 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
         function getQueryParam(param) {
-          const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(param);
-        }
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
-        function translateToMarathi() {
-          document.querySelectorAll('h2, p, h4, span').forEach(element => {
+    function translateToMarathi() {
+        document.querySelectorAll('h2, p, h4, span').forEach(element => {
             const originalText = element.textContent.trim();
             if (translations[originalText]) {
-              element.innerHTML = translations[originalText];
+                element.innerHTML = translations[originalText];
             }
-          });
-        }
+        });
+    }
 
         function Journey() {
           const lang = getQueryParam('lang');

@@ -67,13 +67,15 @@
     font-size: 50px;
     font-weight: bold;
     margin-top: 766px;
-    margin-left: 22px;
+    margin-left: 40px;
     position: absolute;
 }
 
 
+
+
 .scan-me span{
-    font-size: 80px;
+    font-size: 110px;
 }
 
 .frame-wrapper {
@@ -148,10 +150,10 @@
 
 .mumbai-dabbawala {
     position: absolute;
-    height: 1000px;
-    width: 1000px;
+    height: 1010px;
+    width: 750px;
     top: 430px;
-    right: 170px;
+    right: 299px;
 }
 
  .ellipse {
