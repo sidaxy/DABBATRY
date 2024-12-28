@@ -307,7 +307,6 @@ document.addEventListener('DOMContentLoaded', function () {
             item.classList.add('blur');
             item.style.transform = "translateY(30px)";
             item.style.opacity = '0.5';
-            // item.style.transition = 'transform 1s ease-in-out, opacity 1s ease-in-out';
         });
 
         // Remove "blur" class and add "active" class to the current item
@@ -316,6 +315,11 @@ document.addEventListener('DOMContentLoaded', function () {
         currentItem.classList.add('active');  // Add active class for the current item
         currentItem.style.transform = "translateY(0) scale(1.1)";
         currentItem.style.opacity = '1';
+
+        // Stop the timeline at the 7th item
+        if (currentIndex === 6) { // 7th item is at index 6
+            return; // Stop the timeline by returning early
+        }
 
         // Update the index for the next active item
         if (forward) {
