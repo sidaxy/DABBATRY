@@ -13,7 +13,7 @@
 
     <div class="container">
         <div class="box2 heading para">
-            <h2>SELECT YOUR<br>DROP STATION</h2>
+            <h2>SELECT YOUR DROP STATION</h2>
             <p>Select a drop station where the dabbawala will deliver your tiffin box to its final destination. At the drop station, the tiffins are carefully sorted based on their delivery codes and dispatched for last-mile delivery, ensuring they reach the right person on time.</p>
             
         </div>
@@ -79,6 +79,7 @@
 <script>
     const translations = {
         "Select a drop station where the dabbawala will deliver your tiffin box to its final destination. At the drop station, the tiffins are carefully sorted based on their delivery codes and dispatched for last-mile delivery, ensuring they reach the right person on time.": "तुमचा ड्रॉप स्टेशन निवडा जिथे डबेवाला तुमचा डबा अंतिम ठिकाणी पोहोचवेल. ड्रॉप स्टेशनवर डबे त्यांच्या डिलिव्हरी कोडनुसार व्यवस्थित विभागले जातात व अंतिम वितरणासाठी पाठवले जातात, ज्यामुळे डबा योग्य व्यक्तीपर्यंत वेळेत पोहोचतो.",
+        "SELECT YOUR DROP STATION" : "आपले ड्रॉप स्टेशन निवडा",
         "Western Line":"पश्चिम मार्ग",
         "Central Line":"मध्य मार्ग",
         "Harbor Line":"हार्बर मार्ग",
@@ -101,14 +102,15 @@
         "MIRA ROAD":"मीरा रोड",
         "BORIVALI":"बोरिवली",
         "PICK UP STATION": "वाहतूक स्टेशन",
-        "NEXT": "पुढे जा"
+        "NEXT": "पुढे जा",
+        "START JOURNEY":"प्रारंभ यात्रा "
     };
 
     // Specifically update the `<h2>` with the text containing <br>
-        const h2Element = document.querySelector('h2');
-        if (h2Element && h2Element.innerHTML === "SELECT YOUR<br>DROP STATION") {
-            h2Element.innerHTML = "आपले ड्रॉप स्टेशन<br> निवडा"; // Marathi translation with `<br>`
-        }
+        // const h2Element = document.querySelector('h2');
+        // if (h2Element && h2Element.innerHTML === "SELECT YOUR<br>DROP STATION") {
+        //     h2Element.innerHTML = "आपले ड्रॉप स्टेशन<br> निवडा"; // Marathi translation with `<br>`
+        // }
 
     function getQueryParam(param) {
         const urlParams = new URLSearchParams(window.location.search);

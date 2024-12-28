@@ -142,9 +142,9 @@ body {
     }
 
     .heading h2 {
-        text-align: justify;
+        text-align: left;
         font-family: "Lexend Deca";
-        font-size: 110px;
+        font-size: 90px;
         font-weight: 600;
         color: #945B2B;
         /* left: 10px; */

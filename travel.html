@@ -75,7 +75,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">10:00AM - 10:30AM</h2>                      
-            <p class="timeslot_p">Sorting & Loading Dabbas at Bandra Station</p>
+            <p class="timeslot_p">Sorting & Loading Dabbas at Pickup Station</p>
           </div>
         </div>
 
@@ -86,7 +86,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">10:34AM - 11:04AM</h2>
-              <p class="timeslot_p">Sort & transport the dabba from Bandra to Churchgate</p>
+              <p class="timeslot_p">Sort & transport the dabba from Pickup to Drop</p>
           </div>
         </div>
 
@@ -97,7 +97,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">11:04AM - 11:30PM</h2>
-            <p class="timeslot_p">Unloading & Sorting Dabbas at Chuchgate Station.</p>
+            <p class="timeslot_p">Unloading & Sorting Dabbas at Drop Station</p>
           </div>
         </div>
 
@@ -108,7 +108,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">11:35AM - 12:30PM</h2>
-            <p class="timeslot_p">Delivering Dabbas to their respective customers.</p>
+            <p class="timeslot_p">Delivering Dabbas to their respective customers</p>
           </div>
         </div>
 
@@ -119,7 +119,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">1:15PM - 2:30PM</h2>
-            <p class="timeslot_p">Collecting Empty Dabbas from the customers.</p>
+            <p class="timeslot_p">Collecting Empty Dabbas from the customers</p>
           </div>
         </div>
 
@@ -130,7 +130,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">2:30PM - 3:00PM</h2>
-            <p class="timeslot_p">Sorting & Loading Dabbas at Churchgate Station.</p>
+            <p class="timeslot_p">Sorting & Loading Dabbas at Drop Station</p>
           </div>
         </div>
 
@@ -141,7 +141,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">3:30PM - 4:15PM</h2>
-            <p class="timeslot_p">Delivering Dabbas to Destination Households/Caterers.</p>
+            <p class="timeslot_p">Delivering Dabbas to Destination Households/Caterers</p>
           </div>
         </div>
       </div>
@@ -196,13 +196,13 @@ document.addEventListener('DOMContentLoaded', function () {
           "virar":"विरार",
           "miraroad":"मीरा रोड",
           "borivali":"बोरिवली",
-        "Sorting & Loading Dabbas at Bandra Station": "वांद्रे स्थानकावर डबे क्रमवारी लावणे आणि लोड करणे",
-        "Sort & transport the dabba from Bandra to Churchgate":"वांद्रे ते चर्चगेट: डब्यांची क्रमवारी लावणे आणि वाहतूक प्रक्रिया",
-        "Unloading & Sorting Dabbas at Chuchgate Station.":"चर्चगेट स्थानकावर डबे उतरणे आणि क्रमवारी लावणे",
-        "Delivering Dabbas to their respective customers.":"डबे त्यांच्या संबंधित ग्राहकांपर्यंत पोहोचवणे",
-        "Collecting Empty Dabbas from the customers.":"ग्राहकांकडून रिकामे डबे गोळा करणे",
-        "Sorting & Loading Dabbas at Churchgate Station.":"चर्चगेट स्थानकावर डबे क्रमवारी लावणे आणि लोड करणे",
-        "Delivering Dabbas to Destination Households/Caterers.":"डबे गंतव्यस्थानी (घरांमध्ये/केटरर्सकडे) पोहोचवणे"
+        "Sorting & Loading Dabbas at Pickup Station": "पिकअप स्थानकावर डबे क्रमवारी लावणे आणि लोड करणे",
+        "Sort & transport the dabba from Pickup to Drop":"पिकअप ते ड्रॉप : डब्यांची क्रमवारी लावणे आणि वाहतूक प्रक्रिया",
+        "Unloading & Sorting Dabbas at Drop Station":"ड्रॉप स्थानकावर डबे उतरणे आणि क्रमवारी लावणे",
+        "Delivering Dabbas to their respective customers":"डबे त्यांच्या संबंधित ग्राहकांपर्यंत पोहोचवणे",
+        "Collecting Empty Dabbas from the customers":"ग्राहकांकडून रिकामे डबे गोळा करणे",
+        "Sorting & Loading Dabbas at Drop Station":"ड्रॉप स्थानकावर डबे क्रमवारी लावणे आणि लोड करणे",
+        "Delivering Dabbas to Destination Households/Caterers":"डबे गंतव्यस्थानी (घरांमध्ये/केटरर्सकडे) पोहोचवणे"
     };
 
     function getQueryParam(param) {
@@ -361,10 +361,10 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'invoice.html';
     }
 
-    setTimeout(function() {
-      const lang = getQueryParam('lang');
-      window.location.href = `invoice.html${lang ? '?lang=' + lang : ''}`; 
-    }, 30000);
+    // setTimeout(function() {
+    //   const lang = getQueryParam('lang');
+    //   window.location.href = `invoice.html${lang ? '?lang=' + lang : ''}`; 
+    // }, 30000);
 </script>
 <!-- this is station selection script end-->
 
