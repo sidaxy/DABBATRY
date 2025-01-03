@@ -7,6 +7,12 @@
   <title>Dabbawala Journey</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" type="text/css" href="invoice.css">
+  <script>
+       // Set the time for redirect (10 minutes = 600,000 milliseconds)
+        setTimeout(function() {
+            window.location.href = 'index.html'; // Redirect to index.html
+        }, 600000); // 10 minutes
+  </script>
 </head>
 <body>
 
@@ -126,7 +132,7 @@
             width: window.innerWidth < 768 ? 150 : 750, // Set width to 300px for small screens (mobile) and 750px for larger screens
             height: window.innerWidth < 768 ? 150 : 750, // Same for height
             color: {
-                dark: "#000000", // Dark color for the QR code itself
+                dark: "#574d41", // Dark color for the QR code itself
                 light: "#00000000" // Transparent background
             }
         };

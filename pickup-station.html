@@ -25,12 +25,29 @@
 
         </div>
 
+        <!--  -->
+
+
+
         <div class="box box3 station-sel">
-            <img src="images/station2.svg" alt="station">
+            <img src="images/stations_pole.svg" alt="station">
+
+            <!-- This stays at the top of your body element -->
+            <div id="stationDisplayTop" class="station-display1"></div>
+
             <div class="text-overlay" id="pickupStationLabel" class="station-label pickup-station" onclick="openPopup()">
                 <h2>PICK UP STATION</h2>
             </div>
+
+            <!-- Display selected station at the bottom -->
+            <div id="stationDisplayBottom" class="station-display2"></div>
+
         </div>
+
+
+
+
+        <!--  -->
 
         <div class="box4 zoom-box">
             <button id="nextButton" onclick="dropStationPage()">NEXT &nbsp;&nbsp; <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -95,7 +112,7 @@
         "PICK UP STATION": "वाहतूक स्टेशन",
         "DROP STATION": "वितरण स्टेशन",
         "SELECT A DROP STATION": "शेवटचे स्टेशन निवडा",
-       "CSMT":"छत्रपती शिवाजी महाराज ट.",
+        "CSMT":"छत्रपती शिवाजी महाराज ट.",
         "DADAR": "दादर",
         "KURLA": "कुर्ला",
         "THANE": "ठाणे",
@@ -120,6 +137,8 @@
         return urlParams.get(param);
     }
 
+
+
     function translateToMarathi() {
         if (getQueryParam('lang') === 'marathi') {
             document.querySelectorAll('h2, p, h3, a, button').forEach(element => {
@@ -130,6 +149,8 @@
             });
         }
     }
+
+
 
     // Call the translation function on page load
     translateToMarathi();
@@ -246,6 +267,65 @@
     </style>
 
 
+<script>
+function updateSelectedStation(stationName) {
+    // Check if the language is Marathi
+    const urlParams = new URLSearchParams(window.location.search);
+    const isMarathi = urlParams.get('lang') === 'marathi';
+
+    // If the language is Marathi, translate the station name
+    if (isMarathi) {
+        stationName = translateToMarathi(stationName);
+    }
+
+    // Update both the top and bottom with selected station
+    document.getElementById('stationDisplayTop').textContent = stationName;
+    document.getElementById('stationDisplayBottom').textContent = stationName;
+
+    // Update the main station display
+    document.getElementById('mainStation').textContent = stationName;
+
+    // Log for debugging purposes
+    console.log(`Station updated: ${stationName}`);
+}
+
+function translateToMarathi(stationName) {
+    // You can create a translation mapping for the station names here
+    const translationMap = {
+        "csmt": "छत्रपती शिवाजी महाराज ट.",
+        "dadar": "दादर",
+        "kurla": "कुर्ला",
+        "thane": "ठाणे",
+        "wadala": "वडाळा",
+        "vashi": "वाशी",
+        "churchgate": "चर्चगेट",
+        "bandra": "वांद्रे",
+        "andheri": "अंधेरी",
+        "dombivali": "डोंबिवली",
+        "ghatkopar": "घाटकोपर",
+        "byculla": "भायखळा",
+        "virar": "विरार",
+        "miraroad": "मीरा रोड",
+        "borivali": "बोरिवली"
+        // Add more stations as needed
+    };
+
+    return translationMap[stationName] || stationName; // Default to the original name if not found
+}
+
+document.querySelectorAll('.popup-section button').forEach(button => {
+    button.addEventListener('click', function() {
+        const selectedStation = this.getAttribute('data-station');
+        
+        // Debug log to check the station name being selected
+        console.log(`Selected station: ${selectedStation}`);
+
+        // Call the function to update the station displays
+        updateSelectedStation(selectedStation);
+    });
+});
+
+</script>
 
 
 </body>
