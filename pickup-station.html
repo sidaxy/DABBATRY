@@ -33,14 +33,28 @@
             <img src="images/stations_pole.svg" alt="station">
 
             <!-- This stays at the top of your body element -->
-            <div id="stationDisplayTop" class="station-display1"></div>
+            <div id="stationDisplayTop" class="station-display1 curve-text">
+                <svg viewBox="0 0 500 100" xmlns="#">
+                    <path id="curvedPath" d="M50,80 C150,10 350,10 450,80" fill="transparent" stroke="none"/>
+                    <text>
+                        <textPath href="#curvedPath" startOffset="50%" text-anchor="middle" id="curvedStationText"></textPath>
+                    </text>
+                </svg>
+            </div>
 
             <div class="text-overlay" id="pickupStationLabel" class="station-label pickup-station" onclick="openPopup()">
-                <h2>PICK UP STATION</h2>
+                <h2>PICK UP STATION ?</h2>
             </div>
 
             <!-- Display selected station at the bottom -->
-            <div id="stationDisplayBottom" class="station-display2"></div>
+            <div id="stationDisplayBottom" class="station-display2 curve-text">
+                <svg viewBox="0 0 500 100" xmlns="#">
+                    <path id="curvedPathBottom" d="M50,20 C150,90 350,90 450,20" fill="transparent" stroke="none" />
+                    <text>
+                        <textPath href="#curvedPathBottom" startOffset="50%" text-anchor="middle" id="curvedStationTextBottom"></textPath>
+                    </text>
+                </svg>
+            </div>
 
         </div>
 
@@ -109,7 +123,7 @@
         "Western Line":"पश्चिम मार्ग",
         "Central Line":"मध्य मार्ग",
         "Harbor Line":"हार्बर मार्ग",
-        "PICK UP STATION": "वाहतूक स्टेशन",
+        "PICK UP STATION ?": "स्थानक निवडा ?",
         "DROP STATION": "वितरण स्टेशन",
         "SELECT A DROP STATION": "शेवटचे स्टेशन निवडा",
         "CSMT":"छत्रपती शिवाजी महाराज ट.",
@@ -314,18 +328,33 @@ function translateToMarathi(stationName) {
 }
 
 document.querySelectorAll('.popup-section button').forEach(button => {
-    button.addEventListener('click', function() {
-        const selectedStation = this.getAttribute('data-station');
-        
-        // Debug log to check the station name being selected
-        console.log(`Selected station: ${selectedStation}`);
+    button.addEventListener('click', function () {
+        const selectedStation = this.getAttribute('data-station'); // Get selected station in English
+        const lang = getQueryParam('lang'); // Check the language preference
 
-        // Call the function to update the station displays
-        updateSelectedStation(selectedStation);
+        // Check language and set display text
+        const displayText = lang === 'marathi'
+            ? this.getAttribute('data-marathi') // Marathi translation
+            : selectedStation; // Default to English
+
+        // Update the top curved text
+        const curvedStationTextTop = document.getElementById("curvedStationText");
+        curvedStationTextTop.textContent = displayText;
+
+        // Update the bottom curved text
+        const curvedStationTextBottom = document.getElementById("curvedStationTextBottom");
+        curvedStationTextBottom.textContent = displayText;
+
+        // Log for debugging
+        console.log(`Selected station updated (Top & Bottom): ${displayText}`);
+
+        closePopup(); // Close the popup after selection
     });
 });
-
 </script>
+
+
+<!-- curve -->
 
 
 </body>

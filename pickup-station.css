@@ -19,7 +19,7 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 80%;
+            width: 88%;
         }
     
         .box {
@@ -28,11 +28,11 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60%;
+            width: 55%;
         }
     
         .box2 {
-            width: 52%;
+            width: 36%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -42,7 +42,7 @@ body {
         }
     
         .box4 {
-            width: 52%;
+            width: 36%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -79,19 +79,38 @@ body {
 }
 
 .station-display2 {
-    font-size: 24px;
+    font-size: 55px;
     font-weight: bold;
     text-align: center;
     padding: 20px;
     margin: 10px 0;
-    display: none;  /* Hide by default */
+    display: none;
     width: 100%;
-    color: #0000;
+    color: #000;
     position: absolute;
     text-transform: uppercase;
 }
 
 
+.curve-text {
+      font-size: 36px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+/*      transform: rotate(0deg);*/
+    }
+
+@keyframes curve {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
 /* Specific styles for the centered main station */
 .center {
     display: block;
@@ -100,7 +119,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+/*    transform: translate(-50%, -50%);*/
 }
 
 /* Apply the rainbow effect only when a station is selected */
@@ -113,16 +132,12 @@ body {
 /* Define the animation for the rainbow curve */
 @keyframes rainbowCurve {
     0% {
-        transform: translateY(0);
-/*        background: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);*/
-    }
+        transform: translateY(0);    }
     50% {
         transform: translateY(-10px);
-/*        background: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);*/
     }
     100% {
         transform: translateY(0);
-/*        background: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);*/
     }
 }
 
@@ -130,25 +145,47 @@ body {
 #stationDisplayTop {
     display: block;
     font-size: 53px;
-    margin-top: -762px;
-    transform: rotate(-1 * angle / 2);
-/*transform: rotate(calc(180deg / var(--lettersCount) * var(--index)));*/
-
+    margin-top: -862px;
 }
+
+.station-display1 svg {
+    width: 65%;
+    height: auto;
+}
+
+.station-display1 text {
+    font-size: 28px;
+    fill: #000; /* Text color */
+    font-weight: bold;
+}
+
+.station-display2 svg {
+    width: 65%;
+    height: auto;
+}
+
+.station-display2 text {
+    font-size: 28px;
+    fill: #000; /* Text color */
+    font-weight: bold;
+}
+
+
+
 
 #stationDisplayBottom {
     display: block;
-    font-size: 28px;
+/*    font-size: 28px;*/
     margin-top: 582px;
 }
    
         .text-overlay {
             position: absolute;
-            top: 25%;
+            top: -10%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 52px;
+            font-size: 68px;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
             text-align: center;
@@ -417,10 +454,10 @@ body {
     
         .station-sel h2 {
             font-family: "Lexend Deca";
-            font-size: 60px;
+            font-size: 76px;
             font-weight: 600;
             color: #fff;
-            margin-bottom: 45px;
+            margin-bottom: 83px;
         }
 
 

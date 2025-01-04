@@ -37,12 +37,12 @@
     <div class="text_box">
       <h3 class="journey_text">THE DABBA JOURNEY</h3>
       <div class="frame-3">
-        <div class="text-wrapper-2 pickUpStation">
-          <p id="pickupStation"><span>Loading...</span></p>
+        <div class="text-wrapper-2">
+          <p class="pickupStation">Loading...</p>
         </div>
           <img class="arrow" src="https://c.animaapp.com/ocDlckid/img/arrow-2.svg" />
-        <div class="text-wrapper-2 dropStation">
-        <p id="dropStation"><span>Loading...</span></p>
+        <div class="text-wrapper-2 ">
+        <p class="dropStation">Loading..</p>
         </div>
       </div>
     </div> 
@@ -81,7 +81,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">10:00AM - 10:30AM</h2>                      
-            <p class="timeslot_p">Sorting & Loading Dabbas at Pickup Station</p>
+            <p class="timeslot_p">Sorting & Loading Dabbas at <span class="pickupStation">Loading...</span></p>
           </div>
         </div>
 
@@ -92,7 +92,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">10:34AM - 11:04AM</h2>
-              <p class="timeslot_p">Sort & transport the dabba from Pickup to Drop</p>
+              <p class="timeslot_p">Sort & transport the dabba from <span class="pickupStation">Loading...</span> to <span class="dropStation">Loading...</span></p>
           </div>
         </div>
 
@@ -103,7 +103,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">11:04AM - 11:30PM</h2>
-            <p class="timeslot_p">Unloading & Sorting Dabbas at Drop Station</p>
+            <p class="timeslot_p">Unloading & Sorting Dabbas at <span class="dropStation">Loading...</span></p>
           </div>
         </div>
 
@@ -136,7 +136,7 @@
           </div>
           <div class="container-timeslot">
             <h2 class="timeslot_head">2:30PM - 3:00PM</h2>
-            <p class="timeslot_p">Sorting & Loading Dabbas at Drop Station</p>
+            <p class="timeslot_p">Sorting & Loading Dabbas at <span class="dropStation">Loading...</span></p>
           </div>
         </div>
 
@@ -166,13 +166,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
 
     // Update station names in the main journey text
-    document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
+    // Use querySelectorAll to select all elements with the class 'pickupStation'
+ document.querySelectorAll('.pickupStation').forEach(element => {
+    element.textContent = pickupStation; // Directly set the textContent
+});
+ document.querySelectorAll('.dropStation').forEach(element => {
+    element.textContent = dropStation; // Directly set the textContent
+});
+
+
     document.getElementById('dropStation').querySelector('span').textContent = dropStation;
 
     // Update all placeholders in the timeline dynamically
-    document.querySelectorAll('.dynamicPickup').forEach(element => {
-        element.textContent = pickupStation;
-    });
+    // document.querySelectorAll('#pickupStation').forEach(element => {
+    //     element.textContent = pickupStation;
+    // });
+
     document.querySelectorAll('.dynamicDrop').forEach(element => {
         element.textContent = dropStation;
     });
@@ -248,10 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Retrieve selected stations from localStorage
     const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
     const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
-
-    // Update the HTML with the station names
-    document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
-    document.getElementById('dropStation').querySelector('span').textContent = dropStation;
 
     // Get the video element
     const travelVideo = document.getElementById('travelVideo');
@@ -357,13 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <!-- this is station selection script -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Retrieve selected stations from localStorage
-        const pickupStation = localStorage.getItem('selectedPickupStation') || 'Not Selected';
-        const dropStation = localStorage.getItem('selectedDropStation') || 'Not Selected';
 
-        // Update the HTML with the station names
-        document.getElementById('pickupStation').querySelector('span').textContent = pickupStation;
-        document.getElementById('dropStation').querySelector('span').textContent = dropStation;
     });
 
     function goBackToHomePage() {
