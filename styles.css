@@ -475,7 +475,7 @@ body {
 
 .timeslot_head {
   font-family: "Lexend Deca";
-  font-size: 54px;
+  font-size: 52px;
   margin: 0 auto;
   color: #574d41;
   font-weight: 700;
@@ -502,7 +502,7 @@ body {
 }
 
 .stime-stamp-top {
-    margin-top: -257px;
+    margin-top: -170px;
     transform: translateX(23px);
     padding-right: 222px;
 }
