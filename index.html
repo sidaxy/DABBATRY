@@ -11,6 +11,9 @@
 </head>
 <body style="background-color: #fdf6ec;">
 
+
+<audio id="pageLoadAudio" src="voice-station.mp3" autoplay preload="auto"></audio>
+
   <!-- main section -->
   <div class="index-container">
     
@@ -18,7 +21,6 @@
    
     <div class="footer">
       <div class="vitthal-img slide-in-up">
-        <!-- <a onclick="navigateToPage('marathi')" href="do-you-know.html"><img src="images/footer-image1.png" alt="" class="vitthal-image1 marathi"></a> -->
         <a class="marathi" onclick="navigateToPage('marathi')"><img src="images/footer-image1.svg" class="vitthal-image1"></a>
       </div>
 
@@ -83,18 +85,31 @@
   }
 
 
-
-
-
-
-
-
-  </style>
+</style>
 
 
 <!-- this is for marathi translate -->
 
+<script>
+  // Function to play the audio
+  function playAudio() {
+    const audio = document.getElementById('pageLoadAudio');
+    audio.play().catch(error => {
+      console.warn('Autoplay blocked by browser. Audio did not play.', error);
+    });
+  }
 
+  // Try to autoplay the audio on page load
+  window.addEventListener('load', () => {
+    // Play immediately on page load
+    playAudio();
+
+    // Set an interval to play the sound every 10 seconds (10000ms)
+    setInterval(() => {
+      playAudio();
+    }, 10000);  // 10000ms = 10 seconds
+  });
+</script>
 
 </body>
 </html>

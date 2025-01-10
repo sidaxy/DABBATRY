@@ -2,24 +2,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
 
 body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('images/main-bg-pd.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: 'Montserrat', sans-serif;
-        }
-    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    position: relative; /* Ensure proper layering */
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/main-bg-pd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px); /* Adjust the blur radius as needed */
+    z-index: -1; /* Ensure it stays behind the content */
+}
+
         .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 88%;
+            width: 95%;
         }
     
         .box {
@@ -32,34 +45,41 @@ body {
         }
     
         .box2 {
-            width: 36%;
+            width: 28%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-top: 1000px;
+            margin-top: 1420px;
         }
     
-        .box4 {
-            width: 36%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-top: 1575px;
-        }
+.box4 {
+    width: 28%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-align: center;
+    margin-top: 1420px;
+    /* float: none; */
+}
     
   .box img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-top: 437px;
-    z-index: -100;
+/*    margin-top: 437px;*/
+/*    z-index: -100;*/
 }
 
 
+.gifarrow{
+    position: absolute;
+    rotate: 180deg;
+    width: 112px;
+    margin-top: 346px;
+}
 
 
 
@@ -145,7 +165,7 @@ body {
 #stationDisplayTop {
     display: block;
     font-size: 53px;
-    margin-top: -862px;
+    margin-top: -910px;
 }
 
 .station-display1 svg {
@@ -176,22 +196,23 @@ body {
 #stationDisplayBottom {
     display: block;
 /*    font-size: 28px;*/
-    margin-top: 582px;
+    margin-top: 1000px;
 }
    
         .text-overlay {
-            position: absolute;
-            top: -10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 68px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-            text-align: center;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
+        position: absolute;
+        /* top: -10%; */
+        /* left: 50%; */
+        /* transform: translate(-50%, -50%); */
+        color: white;
+        font-size: 68px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        width: 50%;
+    }
     
         .slider-container {
             position: fixed;

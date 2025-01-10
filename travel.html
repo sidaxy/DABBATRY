@@ -67,6 +67,10 @@
               <h2 class="timeslot_head">10:00AM - 10:30AM</h2>
               <p class="timeslot_p" data-translation-key="sorting-loading">Sorting & Loading Dabbas at <span class="pickupStation">Loading...</span></p>
             </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
+            </div>
           </div>
 
           <!-- Timeline Item 2 -->
@@ -77,6 +81,10 @@
             <div class="container-timeslot">
               <h2 class="timeslot_head">10:34AM - 11:04AM</h2>
               <p class="timeslot_p" data-translation-key="sort-transport">Sort & transport the dabba from <span class="pickupStation">Loading...</span> to <span class="dropStation">Loading...</span></p>
+            </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
             </div>
           </div>
 
@@ -89,6 +97,10 @@
               <h2 class="timeslot_head">11:04AM - 11:30PM</h2>
               <p class="timeslot_p" data-translation-key="unloading-sorting">Unloading & Sorting Dabbas at <span class="dropStation">Loading...</span></p>
             </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
+            </div>
           </div>
 
           <!-- Timeline Item 4 -->
@@ -99,6 +111,10 @@
             <div class="container-timeslot">
               <h2 class="timeslot_head">11:35AM - 12:30PM</h2>
               <p class="timeslot_p" data-translation-key="delivering">Delivering Dabbas to their respective customers</p>
+            </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
             </div>
           </div>
 
@@ -111,6 +127,10 @@
               <h2 class="timeslot_head">1:15PM - 2:30PM</h2>
               <p class="timeslot_p" data-translation-key="collecting">Collecting Empty Dabbas from the customers</p>
             </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
+            </div>
           </div>
 
           <!-- Timeline Item 6 -->
@@ -122,6 +142,10 @@
               <h2 class="timeslot_head">2:30PM - 3:00PM</h2>
               <p class="timeslot_p" data-translation-key="sorting-loading">Sorting & Loading Dabbas at <span class="dropStation">Loading...</span></p>
             </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
+            </div>
           </div>
 
           <!-- Timeline Item 7 -->
@@ -132,6 +156,10 @@
             <div class="container-timeslot">
               <h2 class="timeslot_head">3:30PM - 4:15PM</h2>
               <p class="timeslot_p" data-translation-key="final-delivery">Delivering Dabbas to Destination Households/Caterers</p>
+            </div>
+            <!-- Image container on the right -->
+            <div class="timeline-image">
+              <img src="images/dabbaicon.png" class="timeline-img">
             </div>
           </div>
         </div>
@@ -262,7 +290,7 @@
         const currentItem = timelineItems[currentIndex];
         currentItem.classList.remove('blur');
         currentItem.classList.add('active');
-        currentItem.style.transform = "translateY(0) scale(1.1)";
+        currentItem.style.transform = "translateY(20) scale(1.1)";
         currentItem.style.opacity = '1';
 
         if (currentIndex === 6) {

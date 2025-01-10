@@ -11,7 +11,9 @@
 </head>
 
 <body>
-
+     <audio id="stationAudio" preload="auto" autoplay>
+        <source src="/voice-station.mp3" type="audio/mp3">
+    </audio>
 
     <div class="container">
         <!-- <div class="box box1">
@@ -30,7 +32,8 @@
 
 
         <div class="box box3 station-sel">
-            <img src="images/stations_pole.svg" alt="station">
+            <img src="images/stations-select.svg" alt="station">
+            <img src="images/arrowgif.gif" class="gifarrow">
 
             <!-- This stays at the top of your body element -->
             <div id="stationDisplayTop" class="station-display1 curve-text">
@@ -43,10 +46,13 @@
             </div>
 
             <div class="text-overlay" id="pickupStationLabel" class="station-label pickup-station" onclick="openPopup()">
-                <h2>PICK UP STATION ?</h2>
+               <marquee behavior="scroll" direction="left" style="font-size: 58px; color: #fff; background: transparent; padding: 5px; margin-top: 10px;" scrollamount="20">
+                    <h2>PICK UP STATION ?</h2>
+                </marquee>
             </div>
 
-            <!-- Display selected station at the bottom -->
+
+            <!-- Display selected station at the bstations-selectottom -->
             <div id="stationDisplayBottom" class="station-display2 curve-text">
                 <svg viewBox="0 0 500 100" xmlns="#">
                     <path id="curvedPathBottom" d="M50,20 C150,90 350,90 450,20" fill="transparent" stroke="none" />
@@ -354,9 +360,21 @@ document.querySelectorAll('.popup-section button').forEach(button => {
 </script>
 
 
+ <!-- JavaScript to play the sound when the page loads -->
+   <script>
+        // Play audio when the page loads
+        window.onload = function () {
+            const audio = document.getElementById('stationAudio');
+            audio.play().catch((error) => {
+                console.error('Audio play failed:', error);
+            });
+        };
+
+        // Play audio every 20 seconds
+        // 20 seconds
+    </script>
 <!-- curve -->
 
 
 </body>
-
 </html>
